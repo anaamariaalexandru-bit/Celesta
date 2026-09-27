@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ansamblul Celesta - Acasă</title>
+  <title>Ansamblul Celesta</title>
   <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
-  <header>
+  <header class="hero-header">
     <div class="logo">Celesta</div>
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="active">Acasă</a>
       <a href="playlist.html">Playlist</a>
       <a href="evenimente.html">Evenimente</a>
@@ -19,29 +19,33 @@
 
   <main>
     <section class="hero">
-      <h1>Ansamblul Celesta</h1>
-      <p>Muzică, pasiune și momente de neuitat.</p>
+      <div class="hero-content">
+        <h1>Ansamblul Celesta</h1>
+        <p>Muzică, pasiune și momente de neuitat.</p>
+        <a href="playlist.html" class="btn">Ascultă Muzica</a>
+      </div>
     </section>
 
-    <!-- Galeria de imagini legată la Lightbox-ul din script.js -->
     <section class="gallery-section">
       <h2>Galerie Foto</h2>
       <div class="gallery-container">
         <img src="imagini/foto1.jpg" alt="Imagine Celesta 1">
         <img src="imagini/foto2.jpg" alt="Imagine Celesta 2">
         <img src="imagini/foto3.jpg" alt="Imagine Celesta 3">
+        <img src="imagini/foto4.jpg" alt="Imagine Celesta 4">
+        <img src="imagini/foto5.jpg" alt="Imagine Celesta 5">
+        <img src="imagini/foto6.jpg" alt="Imagine Celesta 6">
       </div>
     </section>
 
-    <!-- Modal Lightbox -->
     <div id="lightbox" class="lightbox" aria-hidden="true">
-      <button class="lightbox-close">&times;</button>
-      <button class="lightbox-prev">&#10094;</button>
+      <button class="lightbox-close" aria-label="Închide galeria">&times;</button>
+      <button class="lightbox-prev" aria-label="Imaginea anterioară">&#10094;</button>
       <div class="lightbox-content">
         <img id="lightbox-image" src="" alt="">
         <div id="lightbox-counter"></div>
       </div>
-      <button class="lightbox-next">&#10095;</button>
+      <button class="lightbox-next" aria-label="Imaginea următoare">&#10095;</button>
     </div>
   </main>
 
