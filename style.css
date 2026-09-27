@@ -539,10 +539,10 @@ body::before{
   }
 }
 
-/* ================= URMĂTOARELE EVENIMENTE ================= */
+/* ================= URMĂTOARELE EVENIMENTE (DESIGN COMPACT) ================= */
 .upcoming-events {
   margin-bottom: 48px;
-  padding: 30px;
+  padding: 24px 28px;
   border: 1px solid rgba(229,138,167,0.25);
   border-radius: 28px;
   background: linear-gradient(145deg, rgba(229,138,167,0.12), rgba(255,255,255,0.02)), rgba(10,10,10,0.86);
@@ -551,76 +551,129 @@ body::before{
 }
 
 .upcoming-header {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .upcoming-header h4 {
   font-family: 'Coneria', cursive;
-  font-size: 38px;
+  font-size: 34px;
   color: #fff0f4;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
+/* Container cu derulare dacă sunt mai mult de 3-4 evenimente */
 .upcoming-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px; /* Limitează înălțimea totală */
+  overflow-y: auto;  /* Adaugă scroll discret dacă sunt multe */
+  padding-right: 6px;
 }
 
+/* Personalizare bara de scroll discretă */
+.upcoming-grid::-webkit-scrollbar {
+  width: 5px;
+}
+.upcoming-grid::-webkit-scrollbar-thumb {
+  background: rgba(229, 138, 167, 0.4);
+  border-radius: 10px;
+}
+
+/* Carduri subțiri / tip linie */
 .upcoming-card {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .upcoming-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(229,138,167,0.4);
+  transform: translateX(4px);
+  border-color: rgba(229,138,167,0.35);
+  background: rgba(255, 255, 255, 0.06);
 }
 
+/* Data mică și compactă */
 .upcoming-date {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #e58aa7, #ef97ab);
-  color: #14070d;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(229, 138, 167, 0.2), rgba(239, 151, 171, 0.1));
+  border: 1px solid rgba(229, 138, 167, 0.3);
+  color: #ffd4df;
+  min-width: max-content;
 }
 
 .upcoming-date .day {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1;
 }
 
 .upcoming-date .month {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 2px;
+}
+
+/* Detalii pe un singur rând flexibil */
+.upcoming-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 16px;
+  gap: 12px;
 }
 
 .upcoming-details h5 {
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 600;
   color: #fff;
-  margin-bottom: 6px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.upcoming-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .upcoming-location,
 .upcoming-time {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.78);
-  margin-top: 2px;
+  margin: 0;
+  white-space: nowrap;
 }
 
+/* Adaptare pe telefoane (mobil) */
+@media(max-width: 640px) {
+  .upcoming-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+  .upcoming-details {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    gap: 4px;
+  }
+  .upcoming-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
 
 /* ================= EVENT MODAL ================= */
 .event-modal{
