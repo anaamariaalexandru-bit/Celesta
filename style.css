@@ -539,6 +539,88 @@ body::before{
   }
 }
 
+/* ================= URMĂTOARELE EVENIMENTE ================= */
+.upcoming-events {
+  margin-bottom: 48px;
+  padding: 30px;
+  border: 1px solid rgba(229,138,167,0.25);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(229,138,167,0.12), rgba(255,255,255,0.02)), rgba(10,10,10,0.86);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+  text-align: left;
+}
+
+.upcoming-header {
+  margin-bottom: 24px;
+}
+
+.upcoming-header h4 {
+  font-family: 'Coneria', cursive;
+  font-size: 38px;
+  color: #fff0f4;
+  margin-top: 10px;
+}
+
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.upcoming-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.upcoming-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229,138,167,0.4);
+}
+
+.upcoming-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e58aa7, #ef97ab);
+  color: #14070d;
+}
+
+.upcoming-date .day {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.upcoming-date .month {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.upcoming-details h5 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.upcoming-location,
+.upcoming-time {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 2px;
+}
+
 
 /* ================= EVENT MODAL ================= */
 .event-modal{
