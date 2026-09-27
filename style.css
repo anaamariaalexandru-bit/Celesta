@@ -2066,3 +2066,25 @@ footer{
   margin-top: 15px;
   padding-right: 5px;
 }
+
+/* ================= REPARARE POZIȚIE BUTON X PE MOBIL ȘI LAPTOP ================= */
+.event-modal-card {
+  position: relative !important; /* Asigură ancorarea butonului X în colț */
+}
+
+.event-modal-close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 20px !important;
+  left: auto !important;
+  margin: 0 !important;
+  z-index: 10000;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
