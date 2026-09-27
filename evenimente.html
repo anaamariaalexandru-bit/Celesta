@@ -3,88 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evenimente - Ansamblul Celesta</title>
+  <title>Evenimente</title>
   <link rel="stylesheet" href="style.css?v=2.0">
 </head>
+
 <body>
+  <div class="stars"></div>
+
   <header>
-    <div class="logo">Celesta</div>
+    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
+
     <nav>
       <a href="index.html">Acasă</a>
-      <a href="playlist.html">Playlist</a>
+      <a href="despre.html">Despre noi</a>
       <a href="evenimente.html" class="active">Evenimente</a>
+      <a href="playlist.html">Playlist</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="events-section">
-      <h1>Evenimentele Noastre</h1>
-      <p class="section-desc">Află mai multe despre activitatea și spectacolele noastre.</p>
+  <section class="section">
+    <div class="events-page">
+      <div class="events-hero page-animate">
+        <span class="events-kicker">Momente Celesta</span>
 
-      <div class="events-grid">
-        <!-- Card 1: Repetiții -->
-        <div class="event-card" 
-             data-event-type="repetitii" 
-             data-event-title="Repetiții & Pregătiri" 
-             data-event-description="Munca din spatele scenei: repetițiile noastre săptămânale unde perfecționăm piesele și aranjamentele muzicale.">
-          <h2>Repetiții</h2>
-          <p>Vezi cum ne pregătim pentru spectacole.</p>
-          <button class="btn">Află detalii & Video</button>
-        </div>
+        <h3>Evenimente</h3>
 
-        <!-- Card 2: Concerte -->
-        <div class="event-card" 
-             data-event-type="concerte" 
-             data-event-title="Concerte Live" 
-             data-event-description="Momente magice pe scenă în fața publicului nostru minunat. Spectacole pline de energie și emoție.">
-          <h2>Concerte</h2>
-          <p>Urmărește prestațiile noastre live.</p>
-          <button class="btn">Află detalii & Video</button>
-        </div>
-
-        <!-- Card 3: Caritabile -->
-        <div class="event-card" 
-             data-event-type="caritabile" 
-             data-event-title="Evenimente Caritabile" 
-             data-event-description="Cântăm pentru a aduce zâmbete și sprijin celor care au nevoie. Proiecte de suflet ale ansamblului.">
-          <h2>Caritabile</h2>
-          <p>Muzică pentru o cauză nobilă.</p>
-          <button class="btn">Află detalii & Video</button>
-        </div>
-
-        <!-- Card 4: Festivaluri -->
-        <div class="event-card" 
-             data-event-type="festivaluri" 
-             data-event-title="Festivaluri & Concursuri" 
-             data-event-description="Participări la festivaluri naționale și internaționale, unde reprezentăm cu mândrie muzica noastră.">
-          <h2>Festivaluri</h2>
-          <p>Participări și premii obținute.</p>
-          <button class="btn">Află detalii & Video</button>
-        </div>
+        <p>
+          Fiecare întâlnire, concert sau festival spune o parte din povestea
+          noastră. Descoperă cele mai importante tipuri de evenimente din
+          universul Celesta.
+        </p>
       </div>
-    </section>
 
-    <!-- Modal Evenimente -->
-    <div id="event-modal" class="modal" aria-hidden="true">
-      <div class="modal-content">
-        <button class="event-modal-close" aria-label="Închide">&times;</button>
-        <h2 id="event-modal-title">Titlu Eveniment</h2>
-        <p id="event-modal-description">Descriere eveniment...</p>
-        
-        <button class="btn event-video-button">Vezi Videoclipuri</button>
+<!-- SECȚIUNE NOUĂ: URMĂTOARELE EVENIMENTE (AGENDA COMPACTĂ) -->
+<div class="upcoming-events page-animate">
+  <div class="upcoming-header">
+    <span class="event-label">Calendar</span>
+    <h4>Următoarele evenimente</h4>
+  </div>
 
-        <div id="event-video-panel" hidden>
-          <h3>Clipuri Video:</h3>
-          <div id="event-video-grid" class="video-grid"></div>
+  <div class="upcoming-grid">
+
+    <!-- Eveniment 1 -->
+    <div class="upcoming-card">
+      <div class="upcoming-date">
+        <span class="day">10</span>
+        <span class="month">Oct</span>
+      </div>
+      <div class="upcoming-details">
+        <h5>Cântările Cerului</h5>
+        <div class="upcoming-info">
+          <p class="upcoming-location">📍 BT Arena, Cluj-Napoca</p>
+          <p class="upcoming-time">⏰ Ora 19:00</p>
         </div>
       </div>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; Ansamblul Celesta. Toate drepturile rezervate.</p>
-  </footer>
+    <!-- Eveniment 2 -->
+    <div class="upcoming-card">
+      <div class="upcoming-date">
+        <span class="day">11</span>
+        <span class="month">Oct</span>
+      </div>
+      <div class="upcoming-details">
+        <h5>Târg de toamnă</h5>
+        <div class="upcoming-info">
+          <p class="upcoming-location">📍 Breaza</p>
+          <p class="upcoming-time">⏰ Ora 20:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eveniment 3 -->
+    <div class="upcoming-card">
+      <div class="upcoming-date">
+        <span class="day">13</span>
+        <span class="month">Dec</span>
+      </div>
+      <div class="upcoming-details">
+        <h5>Concert de colinde</h5>
+        <div class="upcoming-info">
+          <p class="upcoming-location">📍 Măgureni</p>
+          <p class="upcoming-time">⏰ Ora - </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poți adăuga oricâte evenimente vrei de aici în jos! -->
+  </div>
+
+</div>
+      <!-- CELE 4 CASETE EXISTENTE -->
+      <div class="event-grid page-animate-delay-1">
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="repetitii"
+          data-event-title="Repetiții"
+          data-event-description="Repetițiile sunt spațiul în care vocile noastre cresc împreună, unde lucrăm armonia, expresivitatea și bucuria de a cânta. 
+          Fiecare întâlnire este un timp dedicat pasiunii, disciplinei și prieteniei dintre membrii Celesta."
+        >
+          <span class="event-label">Armonie</span>
+          <h4>Repetiții</h4>
+          <p>Armonie, disciplină și bucuria de a cânta împreună.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="concerte"
+          data-event-title="Concerte"
+          data-event-description="Concertele reprezintă momentele în care împărtășim publicului emoția, sensibilitatea și munca noastră. 
+          Fiecare apariție scenică este pentru noi o întâlnire cu oamenii, cu frumosul și cu puterea muzicii de a uni."
+        >
+          <span class="event-label">Scenă</span>
+          <h4>Concerte</h4>
+          <p>Întâlnirea dintre muzică, public și emoție autentică.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="caritabile"
+          data-event-title="Caritabile"
+          data-event-description="Evenimentele caritabile ocupă un loc special în agenda Celesta, pentru că esența grupului nostru este dăruirea. 
+          Prin muzică, ne dorim să aducem sprijin, speranță și lumină în locurile unde este cea mai mare nevoie de ele."
+        >
+          <span class="event-label">Cu suflet</span>
+          <h4>Caritabile</h4>
+          <p>Muzică oferită cu drag, acolo unde aduce speranță.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="festivaluri"
+          data-event-title="Festivaluri"
+          data-event-description="Festivalurile sunt ocazii de afirmare, experiență și bucurie artistică. Ne oferă șansa de a cunoaște alți tineri talentați, de a reprezenta cu mândrie grupul Celesta și de a trăi momente speciale pe scene importante."
+        >
+          <span class="event-label">Experiență</span>
+          <h4>Festivaluri</h4>
+          <p>Scene speciale, emoții mari și experiențe memorabile.</p>
+        </button>
+      </div>
+
+      <div class="event-modal" id="event-modal" aria-hidden="true">
+        <div class="event-modal-card">
+          <button
+            class="event-modal-close"
+            type="button"
+            aria-label="Închide fereastra"
+          >
+            &times;
+          </button>
+
+          <h4 id="event-modal-title"></h4>
+
+          <p id="event-modal-description"></p>
+
+          <button class="event-video-button" type="button">
+            Vezi videoclipuri
+          </button>
+
+          <div class="event-video-panel" id="event-video-panel" hidden>
+            <div class="event-video-grid" id="event-video-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Celesta</footer>
 
   <script src="script.js"></script>
 </body>

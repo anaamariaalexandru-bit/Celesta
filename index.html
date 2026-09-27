@@ -3,55 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ansamblul Celesta</title>
+  <title>Celesta</title>
+
+  <link rel="preload" as="image" href="imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d%202.jpg">
   <link rel="stylesheet" href="style.css?v=2.0">
 </head>
+
 <body>
-  <header class="hero-header">
-    <div class="logo">Celesta</div>
-    <nav class="main-nav">
-      <a href="index.html" class="active">Acasă</a>
-      <a href="playlist.html">Playlist</a>
+  <div class="stars"></div>
+
+  <header>
+    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
+
+    <nav>
+      <a href="evenimente.html" class="active">Acasă</a>
+      <a href="despre.html">Despre noi</a>
       <a href="evenimente.html">Evenimente</a>
+      <a href="playlist.html">Playlist</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Ansamblul Celesta</h1>
-        <p>Muzică, pasiune și momente de neuitat.</p>
-        <a href="playlist.html" class="btn">Ascultă Muzica</a>
-      </div>
-    </section>
+  <section class="hero hero-home">
+    <div class="hero-overlay"></div>
 
-    <section class="gallery-section">
-      <h2>Galerie Foto</h2>
-      <div class="gallery-container">
-        <img src="imagini/foto1.jpg" alt="Imagine Celesta 1">
-        <img src="imagini/foto2.jpg" alt="Imagine Celesta 2">
-        <img src="imagini/foto3.jpg" alt="Imagine Celesta 3">
-        <img src="imagini/foto4.jpg" alt="Imagine Celesta 4">
-        <img src="imagini/foto5.jpg" alt="Imagine Celesta 5">
-        <img src="imagini/foto6.jpg" alt="Imagine Celesta 6">
-      </div>
-    </section>
+    <div class="hero-floating page-animate">
+      <span class="hero-kicker">Ansamblul vocal-instrumental</span>
 
-    <div id="lightbox" class="lightbox" aria-hidden="true">
-      <button class="lightbox-close" aria-label="Închide galeria">&times;</button>
-      <button class="lightbox-prev" aria-label="Imaginea anterioară">&#10094;</button>
-      <div class="lightbox-content">
-        <img id="lightbox-image" src="" alt="">
-        <div id="lightbox-counter"></div>
+      <h2>Celesta</h2>
+
+      <p>
+        Muzică, emoție și armonie — momente care rămân vii pe scenă și în suflet.
+      </p>
+
+      <div class="hero-actions">
+        <button
+          class="hero-secondary-button"
+          onclick="document.getElementById('galerie').scrollIntoView({ behavior: 'smooth' })"
+        >
+          Vezi galeria foto
+        </button>
+
+        <a href="despre.html" class="hero-secondary-button">
+          Descoperă povestea
+        </a>
       </div>
-      <button class="lightbox-next" aria-label="Imaginea următoare">&#10095;</button>
+
+      <div class="hero-mini-cards">
+        <div>
+          <strong>Voce</strong>
+          <span>armonie corală</span>
+        </div>
+
+        <div>
+          <strong>Scenă</strong>
+          <span>emoție live</span>
+        </div>
+
+        <div>
+          <strong>Momente</strong>
+          <span>amintiri în imagini</span>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>&copy; Ansamblul Celesta. Toate drepturile rezervate.</p>
-  </footer>
+  <section id="galerie" class="section">
+    <div class="gallery-page">
+      <div class="gallery-hero page-animate-delay-1">
+        <span class="gallery-kicker">Amintiri în imagini</span>
+
+        <h3>Galerie foto</h3>
+
+        <p>
+          O colecție de momente care surprind emoția, scena, repetițiile și
+          frumusețea poveștii Celesta.
+        </p>
+      </div>
+
+      <div class="gallery-container page-animate-delay-2">
+        <img src="imagini/348862d3-b15a-4dc6-bafd-dcfa025d76dc.JPG" alt="Imagine din galeria Celesta" class="card gallery-featured">
+        <img src="imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/9d1e962d-e260-42e2-bd5a-2fc4ca7fe5c7.JPG" alt="Imagine din galeria Celesta" class="card gallery-tall">
+        <img src="imagini/PHOTO-2025-11-27-00-21-20.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-27-00-21-21 2.jpg" alt="Imagine din galeria Celesta" class="card gallery-wide">
+        <img src="imagini/PHOTO-2025-11-27-00-21-21.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-27-00-21-22.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-27-00-21-23.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-29-15-06-34.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-29-15-07-46 2.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-29-15-07-46 3.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-29-15-07-46.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-11-29-15-10-10.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-12-22-09-33-17.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/PHOTO-2025-12-28-22-52-15.jpg" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/R5C18204.JPG" alt="Imagine din galeria Celesta" class="card">
+        <img src="imagini/d49d06b3-8a93-4f96-918a-6e3bc25e693c.JPG" alt="Imagine din galeria Celesta" class="card">
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Închide">
+      &times;
+    </button>
+
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Imaginea anterioară">
+      ‹
+    </button>
+
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="Imagine mărită din galeria Celesta">
+      <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+    </div>
+
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Imaginea următoare">
+      ›
+    </button>
+  </div>
+
+  <footer>&copy; 2026 Celesta</footer>
 
   <script src="script.js"></script>
 </body>

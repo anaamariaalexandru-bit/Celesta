@@ -3,52 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Ansamblul Celesta</title>
+  <title>Contact</title>
+
   <link rel="stylesheet" href="style.css?v=2.0">
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
+
 <body>
+  <div class="stars"></div>
+
   <header>
-    <div class="logo">Celesta</div>
+    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
+
     <nav>
       <a href="index.html">Acasă</a>
-      <a href="playlist.html">Playlist</a>
+      <a href="despre.html">Despre noi</a>
       <a href="evenimente.html">Evenimente</a>
+      <a href="playlist.html">Playlist</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="contact-section">
-      <h1>Contactează-ne</h1>
-      <p>Ai o întrebare sau dorești să ne inviți la un eveniment? Trimite-ne un mesaj!</p>
+  <section class="section">
+    <div class="contact-page">
+      <div class="contact-hero page-animate">
+        <span class="contact-kicker">Rămânem aproape</span>
 
-      <form id="contact-form">
-        <div class="form-group">
-          <label for="nume">Nume complet:</label>
-          <input type="text" id="nume" name="nume" required>
+        <h3>Contact</h3>
+
+        <p>
+          Ne bucurăm să fim aproape de oamenii care iubesc muzica, frumosul și
+          proiectele făcute din suflet. Dacă vrei să ne inviți la un eveniment,
+          să ne transmiți un gând frumos sau să afli mai multe despre Celesta,
+          ne poți scrie aici.
+        </p>
+      </div>
+
+      <div class="contact-grid page-animate-delay-1">
+        <div class="contact-form-card">
+          <span class="contact-label">Scrie-ne</span>
+
+          <h4>Trimite-ne un mesaj</h4>
+
+          <p>
+            Completează formularul și îți vom răspunde cu drag în cel mai scurt timp.
+          </p>
+
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="nume" placeholder="Nume" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="mesaj" placeholder="Mesaj" required></textarea>
+
+            <button type="submit">Trimite</button>
+          </form>
+
+          <p
+            class="form-status"
+            id="form-status"
+            aria-live="polite"
+          ></p>
         </div>
 
-        <div class="form-group">
-          <label for="email">Adresă de Email:</label>
-          <input type="email" id="email" name="email" required>
+        <div class="contact-info-panel">
+          <div class="contact-info-card">
+            <span class="contact-label">Email</span>
+
+            <h4>Scrie-ne direct</h4>
+
+            <p>ansamblul.vocal.celesta@gmail.com</p>
+          </div>
+
+          <div class="contact-info-card">
+            <span class="contact-label">Telefon</span>
+
+            <h4>Sună-ne</h4>
+
+            <p>+40 726 261 872</p>
+          </div>
+
+          <div class="contact-info-card">
+            <span class="contact-label">Social media</span>
+
+            <h4>Instagram & TikTok</h4>
+
+            <p>@ce_les_taa</p>
+          </div>
+
+          <div class="contact-info-card">
+            <span class="contact-label">Locație</span>
+
+            <h4>Ne găsești în</h4>
+
+            <p>Câmpina, Prahova</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="form-group">
-          <label for="mesaj">Mesajul tău:</label>
-          <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="btn">Trimite Mesajul</button>
-        <div id="form-status" class="form-status"></div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; Ansamblul Celesta. Toate drepturile rezervate.</p>
-  </footer>
+  <footer>&copy; 2026 Celesta</footer>
 
   <script src="script.js"></script>
 </body>
