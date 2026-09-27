@@ -2089,21 +2089,19 @@ footer{
   cursor: pointer;
 }
 
-/* ================= ELIMINARE CASETA BUTON DETALII ================= */
-.event-details-btn,
-.event-card-link,
-.event-details-tag {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+/* ================= ELIMINARE TITLU DETALII DIN POP-UP ================= */
+#event-modal-label,
+.event-modal-card h4,
+.modal-header-tag {
+  display: none !important;
+  visibility: hidden !important;
+  margin: 0 !important;
   padding: 0 !important;
-  color: #e58aa7 !important; /* Păstrează culoarea roz fină a textului */
-  text-decoration: underline; /* Subliniază ușor textul ca să se știe că se poate da click */
-  cursor: pointer;
+  height: 0 !important;
+  opacity: 0 !important;
 }
 
-.event-details-btn:hover,
-.event-card-link:hover {
-  background: none !important;
-  color: #fff !important; /* Devine alb când treci cu mouse-ul peste el */
+/* Ajustare spațiu superior în fereastra pop-up după ștergerea titlului */
+.event-modal-card {
+  padding-top: 40px !important; /* Oferă spațiu pentru butonul X de închidere */
 }
