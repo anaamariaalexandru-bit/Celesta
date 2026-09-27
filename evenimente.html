@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Evenimente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <header>
+    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
+
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="despre.html">Despre noi</a>
+      <a href="evenimente.html" class="active">Evenimente</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <div class="events-page">
+      <div class="events-hero page-animate">
+        <span class="events-kicker">Momente Celesta</span>
+
+        <h3>Evenimente</h3>
+
+        <p>
+          Fiecare întâlnire, concert sau festival spune o parte din povestea
+          noastră. Descoperă cele mai importante tipuri de evenimente din
+          universul Celesta.
+        </p>
+      </div>
+
+      <div class="event-grid page-animate-delay-1">
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="repetitii"
+          data-event-title="Repetiții"
+          data-event-description="Repetițiile sunt spațiul în care vocile noastre cresc împreună, unde lucrăm armonia, expresivitatea și bucuria de a cânta. 
+          Fiecare întâlnire este un timp dedicat pasiunii, disciplinei și prieteniei dintre membrii Celesta."
+        >
+          <span class="event-label">Armonie</span>
+          <h4>Repetiții</h4>
+          <p>Armonie, disciplină și bucuria de a cânta împreună.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="concerte"
+          data-event-title="Concerte"
+          data-event-description="Concertele reprezintă momentele în care împărtășim publicului emoția, sensibilitatea și munca noastră. 
+          Fiecare apariție scenică este pentru noi o întâlnire cu oamenii, cu frumosul și cu puterea muzicii de a uni."
+        >
+          <span class="event-label">Scenă</span>
+          <h4>Concerte</h4>
+          <p>Întâlnirea dintre muzică, public și emoție autentică.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="caritabile"
+          data-event-title="Caritabile"
+          data-event-description="Evenimentele caritabile ocupă un loc special în agenda Celesta, pentru că esența grupului nostru este dăruirea. 
+          Prin muzică, ne dorim să aducem sprijin, speranță și lumină în locurile unde este cea mai mare nevoie de ele."
+        >
+          <span class="event-label">Cu suflet</span>
+          <h4>Caritabile</h4>
+          <p>Muzică oferită cu drag, acolo unde aduce speranță.</p>
+        </button>
+
+        <button
+          class="event-card"
+          type="button"
+          data-event-type="festivaluri"
+          data-event-title="Festivaluri"
+          data-event-description="Festivalurile sunt ocazii de afirmare, experiență și bucurie artistică. Ne oferă șansa de a cunoaște alți tineri talentați, de a reprezenta cu mândrie grupul Celesta și de a trăi momente speciale pe scene importante."
+        >
+          <span class="event-label">Experiență</span>
+          <h4>Festivaluri</h4>
+          <p>Scene speciale, emoții mari și experiențe memorabile.</p>
+        </button>
+      </div>
+
+      <div class="event-modal" id="event-modal" aria-hidden="true">
+        <div class="event-modal-card">
+          <button
+            class="event-modal-close"
+            type="button"
+            aria-label="Închide fereastra"
+          >
+            &times;
+          </button>
+
+          <span class="event-label modal-label">Detalii</span>
+
+          <h4 id="event-modal-title"></h4>
+
+          <p id="event-modal-description"></p>
+
+          <button class="event-video-button" type="button">
+            Vezi videoclipuri
+          </button>
+
+          <div class="event-video-panel" id="event-video-panel" hidden>
+            <div class="event-video-grid" id="event-video-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Celesta</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
