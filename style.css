@@ -2089,19 +2089,3 @@ footer{
   cursor: pointer;
 }
 
-/* ================= ELIMINARE TITLU DETALII DIN POP-UP ================= */
-#event-modal-label,
-.event-modal-card h4,
-.modal-header-tag {
-  display: none !important;
-  visibility: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  opacity: 0 !important;
-}
-
-/* Ajustare spațiu superior în fereastra pop-up după ștergerea titlului */
-.event-modal-card {
-  padding-top: 40px !important; /* Oferă spațiu pentru butonul X de închidere */
-}
