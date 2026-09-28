@@ -104,22 +104,28 @@
   </section>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" type="button" aria-label="Închide">
-      &times;
-    </button>
-
-    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Imaginea anterioară">
-      ‹
-    </button>
-
     <div class="lightbox-content">
+      <!-- Butonul X (acum ancorat de cadrul pozei) -->
+      <button class="lightbox-close" type="button" aria-label="Închide">
+        &times;
+      </button>
+
+      <!-- Săgeata Stânga -->
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Imaginea anterioară">
+        ‹
+      </button>
+
+      <!-- Imaginea propriu-zisă -->
       <img id="lightbox-image" src="" alt="Imagine mărită din galeria Celesta">
+
+      <!-- Săgeata Dreapta -->
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Imaginea următoare">
+        ›
+      </button>
+
+      <!-- Contorul de poze sub poză -->
       <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
     </div>
-
-    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Imaginea următoare">
-      ›
-    </button>
   </div>
 
   <footer>&copy; 2026 Celesta</footer>
