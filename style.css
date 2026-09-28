@@ -191,6 +191,7 @@ body::before{
 .contact-page,
 .gallery-page{
   max-width:1240px;
+  width: 100%;
   margin:0 auto;
 }
 
@@ -336,6 +337,7 @@ body::before{
 /* ================= EVENTS PAGE ================= */
 .events-page{
   max-width:1180px;
+  width: 100%;
   margin:0 auto;
 }
 
@@ -753,6 +755,7 @@ body::before{
 /* ================= PLAYLIST PAGE ================= */
 .playlist-page{
   max-width:1180px;
+  width: 100%;
   margin:0 auto;
 }
 
@@ -1266,6 +1269,7 @@ body::before{
 /* ================= CONTACT PAGE ================= */
 .contact-page{
   max-width:1180px;
+  width: 100%;
   margin:0 auto;
 }
 
@@ -1576,6 +1580,7 @@ body::before{
 /* ================= GALLERY PAGE ================= */
 .gallery-page{
   max-width:1180px;
+  width: 100%;
   margin:0 auto;
 }
 
