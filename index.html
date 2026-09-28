@@ -12,17 +12,36 @@
 <body>
   <div class="stars"></div>
 
-  <header>
-    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
+  <header class="header">
+  <div class="header-container">
+    <!-- Logo sau Titlul Site-ului -->
+    <a href="#" class="logo">Celesta</a>
 
-    <nav>
-      <a href="evenimente.html" class="active">Acasă</a>
-      <a href="despre.html">Despre noi</a>
-      <a href="evenimente.html">Evenimente</a>
-      <a href="playlist.html">Playlist</a>
-      <a href="contact.html">Contact</a>
+    <!-- Butonul cu cele 3 liniuțe (Hamburger) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Deschide meniul">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Meniul lateral care glisează din dreapta -->
+    <nav class="nav-menu" id="nav-menu">
+      <!-- Butonul X de închidere din interiorul meniului -->
+      <button class="close-menu" id="close-menu-btn" aria-label="Închide meniul">&times;</button>
+      
+      <ul>
+        <li><a href="#home" class="nav-link">Acasă</a></li>
+        <li><a href="#despre" class="nav-link">Despre Noi</a></li>
+        <li><a href="#galerie" class="nav-link">Galerie</a></li>
+        <li><a href="#evenimente" class="nav-link">Evenimente</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
     </nav>
-  </header>
+
+    <!-- Fundal întunecat când meniul este deschis -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+  </div>
+</header>
 
   <section class="hero hero-home">
     <div class="hero-overlay"></div>
