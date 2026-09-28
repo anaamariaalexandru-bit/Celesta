@@ -21,7 +21,7 @@ html{
 }
 
 [hidden]{
-  display:none !important;
+  display:none;
 }
 
 /* container stele */
@@ -733,9 +733,9 @@ body::before{
   top:18px;
   right:18px;
 
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 
   color:#fff;
   font-size:34px;
@@ -1661,148 +1661,167 @@ body::before{
   box-shadow:0 18px 38px rgba(0,0,0,0.34);
 }
 
-/* ================= LIGHTBOX ================= */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  backdrop-filter:blur(10px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 90px 70px;
-  z-index:1400;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.35s ease;
+/* ================= LIGHTBOX REPARAT ================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 100000; /* Asigură suprapunerea peste tot (inclusiv header) */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
-.lightbox[aria-hidden="false"]{
-  opacity:1;
-  pointer-events:auto;
+.lightbox[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.lightbox-content{
-  position:relative;
-  max-width:min(1050px, 100%);
-  max-height:84vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.lightbox-content {
+  position: relative;
+  max-width: min(1050px, 90vw);
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lightbox-content img{
-  max-width:100%;
-  max-height:84vh;
-  object-fit:contain;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 24px 70px rgba(0,0,0,0.42);
-  opacity:0;
-  transform:scale(0.965);
-  transition:opacity 0.32s ease, transform 0.32s ease;
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(0.965);
+  transition: opacity 0.32s ease, transform 0.32s ease;
 }
 
-.lightbox-content img.is-visible{
-  opacity:1;
-  transform:scale(1);
+.lightbox-content img.is-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.lightbox-counter{
-  position:fixed;
-  left:50%;
-  bottom:18px;
-  transform:translateX(-50%);
-  color:rgba(255,255,255,0.82);
-  font-size:14px;
-  letter-spacing:1.2px;
-  text-align:center;
-  text-shadow:0 0 14px rgba(0,0,0,0.55);
+.lightbox-counter {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  z-index: 100001;
+  pointer-events: none;
 }
 
-.lightbox button{
-  padding:0 !important;
-  border:none !important;
-  background:none !important;
-  background-color:transparent !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-  min-width:0 !important;
-  min-height:0 !important;
+/* Resetăm stilurile de buton pentru Lightbox */
+.lightbox button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
-.lightbox-close,
-.lightbox-arrow{
-  position:absolute;
-  border:none;
-  background:none !important;
-  background-color:transparent !important;
-  box-shadow:none !important;
-  outline:none;
-  color:#fff7fa;
-  cursor:pointer;
-  padding:0;
-  line-height:1;
-  appearance:none;
-  -webkit-appearance:none;
-  transition:transform 0.25s ease, color 0.25s ease, opacity 0.25s ease, text-shadow 0.25s ease;
-  text-shadow:0 0 18px rgba(0,0,0,0.55);
+/* Poziționare Buton Închidere (X) */
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  left: auto;
+  font-size: 42px;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100002;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.lightbox-close::before,
-.lightbox-close::after,
-.lightbox-arrow::before,
-.lightbox-arrow::after{
-  display:none !important;
-  content:none !important;
+.lightbox-close:hover {
+  color: #e58aa7;
+  transform: scale(1.15);
 }
 
-.lightbox-close{
-  top:16px;
-  right:24px;
-  font-size:44px;
-  font-weight:300;
+/* Poziționare Săgeți de Navigare */
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 60px;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100002;
+  opacity: 0.8;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
 }
 
-.lightbox-arrow{
-  top:50%;
-  transform:translateY(-50%);
-  font-size:76px;
-  font-weight:300;
-  opacity:0.9;
+.lightbox-prev {
+  left: 20px;
 }
 
-.lightbox-prev{
-  left:24px;
+.lightbox-next {
+  right: 20px;
 }
 
-.lightbox-next{
-  right:24px;
+.lightbox-arrow:hover {
+  opacity: 1;
+  color: #e58aa7;
+  background: rgba(255, 255, 255, 0.18);
 }
 
-.lightbox-close:hover{
-  color:#f3a6bc;
-  opacity:1;
-  text-shadow:
-    0 0 10px rgba(229,138,167,0.35),
-    0 0 22px rgba(229,138,167,0.22);
-  transform:scale(1.06);
+.lightbox-prev:hover {
+  transform: translateY(-50%) scale(1.08);
 }
 
-.lightbox-arrow:hover{
-  color:#f3a6bc;
-  opacity:1;
-  text-shadow:
-    0 0 10px rgba(229,138,167,0.35),
-    0 0 22px rgba(229,138,167,0.22);
+.lightbox-next:hover {
+  transform: translateY(-50%) scale(1.08);
 }
 
-.lightbox-prev:hover{
-  transform:translateY(-50%) translateX(-3px);
-}
+/* Adaptare Responsive (Mobil și Tablete) */
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 20px 10px;
+  }
 
-.lightbox-next:hover{
-  transform:translateY(-50%) translateX(3px);
+  .lightbox-close {
+    top: 15px;
+    right: 15px;
+    font-size: 36px;
+  }
+
+  .lightbox-arrow {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
 }
 
 /* ================= FOOTER ================= */
@@ -2076,15 +2095,15 @@ footer{
 
 /* ================= REPARARE POZIȚIE BUTON X PE MOBIL ȘI LAPTOP ================= */
 .event-modal-card {
-  position: relative !important; /* Asigură ancorarea butonului X în colț */
+  position: relative; /* Asigură ancorarea butonului X în colț */
 }
 
 .event-modal-close {
-  position: absolute !important;
-  top: 16px !important;
-  right: 20px !important;
-  left: auto !important;
-  margin: 0 !important;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  left: auto;
+  margin: 0;
   z-index: 10000;
   width: 36px;
   height: 36px;
