@@ -59,7 +59,7 @@ html{
   animation: twinkle 2s infinite alternate;
 }
 
-/* animaČie uČoarÄ */
+/* animaČ›ie uČ™oarÄƒ */
 @keyframes twinkle {
   from {
     opacity: 0.3;
@@ -1661,20 +1661,30 @@ body::before{
   box-shadow:0 18px 38px rgba(0,0,0,0.34);
 }
 
-/* ================= LIGHTBOX (IDENTIC LAPTOP & MOBIL) ================= */
+/* ================= LIGHTBOX ================= */
 .lightbox {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding:
+    max(12px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+  box-sizing: border-box;
   z-index: 999999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  overscroll-behavior: contain;
 }
 
 .lightbox[aria-hidden="false"] {
@@ -1684,17 +1694,19 @@ body::before{
 
 .lightbox-content {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 56px 56px 48px;
+  box-sizing: border-box;
 }
 
 /* Imaginea centrată */
 .lightbox-content img {
-  max-width: 85vw;
-  max-height: 75vh;
+  max-width: min(85vw, 100%);
+  max-height: min(75vh, 75dvh);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -1710,100 +1722,144 @@ body::before{
   transform: scale(1);
 }
 
-/* Resetare stiluri butoane */
-.lightbox button {
+/* Izolare totală față de stilurile globale de button */
+.lightbox button,
+.lightbox button:hover,
+.lightbox button:active,
+.lightbox button:focus,
+.lightbox button:focus-visible {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  height: auto;
   padding: 0;
+  margin: 0;
   border: none;
-  background: transparent;
-  box-shadow: none;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
   outline: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transform: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  will-change: auto;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* X-ul fix în colțul din dreapta sus al ecranului */
+.lightbox button:hover,
+.lightbox button:active,
+.lightbox button:focus-visible {
+  opacity: 0.75;
+  background: transparent !important;
+  transform: none !important;
+}
+
+/* X-ul fix în colțul din dreapta sus */
 .lightbox-close {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
   left: auto;
   bottom: auto;
-  font-size: 38px;
-  font-weight: 300;
-  color: #ffffff;
-  cursor: pointer;
+  font-size: 36px;
   z-index: 1000000;
-  line-height: 1;
-  width: 44px;
-  height: 44px;
-  display: flex;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
 }
 
-/* Săgețile pe marginile ecranului negru (stânga și dreapta) */
+/* Săgețile pe marginile ecranului */
 .lightbox-arrow {
   position: fixed;
   top: 50%;
-  transform: translateY(-50%);
-  font-size: 48px;
-  font-weight: 300;
-  color: #ffffff;
-  cursor: pointer;
+  transform: translateY(-50%) !important;
+  font-size: 44px;
   z-index: 1000000;
-  line-height: 1;
-  width: 50px;
-  height: 50px;
-  display: flex;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
 }
 
+.lightbox-arrow:hover,
+.lightbox-arrow:active,
+.lightbox-arrow:focus-visible {
+  transform: translateY(-50%) !important;
+  opacity: 0.75;
+}
+
 .lightbox-prev {
-  left: 15px;
+  left: max(10px, env(safe-area-inset-left));
   right: auto;
 }
 
 .lightbox-next {
-  right: 15px;
+  right: max(10px, env(safe-area-inset-right));
   left: auto;
 }
 
 /* Contorul jos pe mijloc */
 .lightbox-counter {
   position: fixed;
-  bottom: 25px;
+  bottom: max(20px, env(safe-area-inset-bottom));
   left: 50%;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   letter-spacing: 1px;
   z-index: 1000000;
+  pointer-events: none;
 }
 
-/* Regula specială de mobil - elimină orice suprascriere anterioară */
 @media (max-width: 768px) {
-  .lightbox-content img {
-    max-width: 82vw;
-    max-height: 70vh;
+  .lightbox-content {
+    padding: 64px 44px 56px;
   }
-  
+
+  .lightbox-content img {
+    max-width: min(88vw, 100%);
+    max-height: min(68vh, 68dvh);
+  }
+
   .lightbox-close {
-    top: 15px;
-    right: 15px;
-    font-size: 34px;
+    top: max(12px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+    font-size: 32px;
   }
 
   .lightbox-arrow {
-    font-size: 38px;
-    width: 40px;
-    height: 40px;
+    font-size: 36px;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 
   .lightbox-prev {
-    left: 8px;
+    left: max(6px, env(safe-area-inset-left));
   }
 
   .lightbox-next {
-    right: 8px;
+    right: max(6px, env(safe-area-inset-right));
+  }
+
+  .lightbox-counter {
+    bottom: max(16px, env(safe-area-inset-bottom));
+    font-size: 13px;
   }
 }
 
@@ -1871,33 +1927,6 @@ footer{
   .gallery-container img{
     height:170px;
     border-radius:16px;
-  }
-
-  .lightbox{
-    padding:24px 18px 60px;
-  }
-
-  .lightbox-arrow{
-    font-size:54px;
-  }
-
-  .lightbox-close{
-    top:10px;
-    right:14px;
-    font-size:38px;
-  }
-
-  .lightbox-prev{
-    left:10px;
-  }
-
-  .lightbox-next{
-    right:10px;
-  }
-
-  .lightbox-counter{
-    bottom:14px;
-    font-size:13px;
   }
 }
 
@@ -1980,14 +2009,6 @@ footer{
   .gallery-container img{
     height:220px;
   }
-
-  .lightbox-arrow{
-    font-size:42px;
-  }
-
-  .lightbox-close{
-    font-size:34px;
-  }
 }
 
 
@@ -2018,8 +2039,8 @@ footer{
     font-size: 14px;
   }
 
-  /* Butoane mai ușor de apăsat cu degetul */
-  button, 
+  /* Butoane mai ușor de apăsat cu degetul (fără lightbox) */
+  button:not(.lightbox-close):not(.lightbox-arrow):not(.lightbox-prev):not(.lightbox-next),
   .hero-secondary-button {
     width: 100%;
     min-height: 48px;
@@ -2098,4 +2119,3 @@ footer{
   line-height: 1;
   cursor: pointer;
 }
-
