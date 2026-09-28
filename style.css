@@ -1661,149 +1661,152 @@ body::before{
   box-shadow:0 18px 38px rgba(0,0,0,0.34);
 }
 
-/* ================= LIGHTBOX ================= */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  backdrop-filter:blur(10px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 90px 70px;
-  z-index:1400;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.35s ease;
+/* ================= LIGHTBOX (IDENTIC LAPTOP & MOBIL) ================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.lightbox[aria-hidden="false"]{
-  opacity:1;
-  pointer-events:auto;
+.lightbox[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.lightbox-content{
-  position:relative;
-  max-width:min(1050px, 100%);
-  max-height:84vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.lightbox-content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lightbox-content img{
-  max-width:100%;
-  max-height:84vh;
-  object-fit:contain;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 24px 70px rgba(0,0,0,0.42);
-  opacity:0;
-  transform:scale(0.965);
-  transition:opacity 0.32s ease, transform 0.32s ease;
+/* Imaginea centrată */
+.lightbox-content img {
+  max-width: 85vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.lightbox-content img.is-visible{
-  opacity:1;
-  transform:scale(1);
+.lightbox-content img.is-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.lightbox-counter{
-  position:fixed;
-  left:50%;
-  bottom:18px;
-  transform:translateX(-50%);
-  color:rgba(255,255,255,0.82);
-  font-size:14px;
-  letter-spacing:1.2px;
-  text-align:center;
-  text-shadow:0 0 14px rgba(0,0,0,0.55);
+/* Resetare stiluri butoane */
+.lightbox button {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
-.lightbox button{
-  padding:0 !important;
-  border:none !important;
-  background:none !important;
-  background-color:transparent !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-  min-width:0 !important;
-  min-height:0 !important;
+/* X-ul fix în colțul din dreapta sus al ecranului */
+.lightbox-close {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  font-size: 38px !important;
+  font-weight: 300 !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  z-index: 1000000 !important;
+  line-height: 1 !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.lightbox-close,
-.lightbox-arrow{
-  position:absolute;
-  border:none;
-  background:none !important;
-  background-color:transparent !important;
-  box-shadow:none !important;
-  outline:none;
-  color:#fff7fa;
-  cursor:pointer;
-  padding:0;
-  line-height:1;
-  appearance:none;
-  -webkit-appearance:none;
-  transition:transform 0.25s ease, color 0.25s ease, opacity 0.25s ease, text-shadow 0.25s ease;
-  text-shadow:0 0 18px rgba(0,0,0,0.55);
+/* Săgețile pe marginile ecranului negru (stânga și dreapta) */
+.lightbox-arrow {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 48px !important;
+  font-weight: 300 !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  z-index: 1000000 !important;
+  line-height: 1 !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.lightbox-close::before,
-.lightbox-close::after,
-.lightbox-arrow::before,
-.lightbox-arrow::after{
-  display:none !important;
-  content:none !important;
+.lightbox-prev {
+  left: 15px !important;
+  right: auto !important;
 }
 
-.lightbox-close{
-  top:16px;
-  right:24px;
-  font-size:44px;
-  font-weight:300;
+.lightbox-next {
+  right: 15px !important;
+  left: auto !important;
 }
 
-.lightbox-arrow{
-  top:50%;
-  transform:translateY(-50%);
-  font-size:76px;
-  font-weight:300;
-  opacity:0.9;
+/* Contorul jos pe mijloc */
+.lightbox-counter {
+  position: fixed !important;
+  bottom: 25px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 14px !important;
+  letter-spacing: 1px !important;
+  z-index: 1000000 !important;
 }
 
-.lightbox-prev{
-  left:24px;
+/* Regula specială de mobil - elimină orice suprascriere anterioară */
+@media (max-width: 768px) {
+  .lightbox-content img {
+    max-width: 82vw;
+    max-height: 70vh;
+  }
+  
+  .lightbox-close {
+    top: 15px !important;
+    right: 15px !important;
+    font-size: 34px !important;
+  }
+
+  .lightbox-arrow {
+    font-size: 38px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .lightbox-prev {
+    left: 8px !important;
+  }
+
+  .lightbox-next {
+    right: 8px !important;
+  }
 }
 
-.lightbox-next{
-  right:24px;
-}
-
-.lightbox-close:hover{
-  color:#f3a6bc;
-  opacity:1;
-  text-shadow:
-    0 0 10px rgba(229,138,167,0.35),
-    0 0 22px rgba(229,138,167,0.22);
-  transform:scale(1.06);
-}
-
-.lightbox-arrow:hover{
-  color:#f3a6bc;
-  opacity:1;
-  text-shadow:
-    0 0 10px rgba(229,138,167,0.35),
-    0 0 22px rgba(229,138,167,0.22);
-}
-
-.lightbox-prev:hover{
-  transform:translateY(-50%) translateX(-3px);
-}
-
-.lightbox-next:hover{
-  transform:translateY(-50%) translateX(3px);
-}
 
 /* ================= FOOTER ================= */
 footer{
