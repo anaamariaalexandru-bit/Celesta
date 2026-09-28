@@ -13,6 +13,38 @@ const eventVideoGrid = document.querySelector("#event-video-grid");
 
 let currentEventType = "";
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Deschide meniul
+  function openMenu() {
+    navMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Blochează scroll-ul paginii
+  }
+
+  // Închide meniul
+  function closeMenu() {
+    navMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = ''; // Deblochează scroll-ul
+  }
+
+  hamburgerBtn.addEventListener('click', openMenu);
+  closeMenuBtn.addEventListener('click', closeMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+
+  // Închide meniul automat când apeși pe o opțiune/link
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+});
+
 /* =========================
    PLAYLIST PAGE REFERENCES
    Referințe pentru taburi, lista de melodii și textul de descriere.
