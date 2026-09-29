@@ -14,7 +14,6 @@ body{
   flex-direction:column;
   background: #0a0a0a;
   overflow-x: hidden;
-  padding-top: env(safe-area-inset-top);
 }
 
 html{
@@ -70,131 +69,45 @@ html{
   }
 }
 
-/* ================= MENIU HAMBURGER CU GLISARE ================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(16, 16, 16, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 10000;
-  padding: 15px 25px;
-  box-sizing: border-box;
+
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  background:rgba(0,0,0,0.9);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+header h1{
+  font-family:'Coneria', cursive;
+  font-size:24px;
+  color:#e58aa7;
+  font-weight:400;
 }
 
-.logo {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: none;
+/* ================= NAV ================= */
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+  transition:0.3s;
 }
 
-/* Cele 3 liniuțe (Hamburger Icon) */
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  background: transparent !important;
-  border: none !important;
-  cursor: pointer;
-  padding: 0 !important;
-  z-index: 10001;
+nav a:hover,
+nav a.active{
+  color:#e58aa7;
+  text-decoration:underline;
 }
-
-.hamburger span {
-  width: 100%;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* Panoul lateral care glisează din DREAPTA */
-.nav-menu {
-  position: fixed;
-  top: 0;
-  right: -300px; /* Ascuns în afara ecranului în dreapta */
-  width: 280px;
-  height: 100vh;
-  height: 100dvh;
-  background: #141414;
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  padding: 80px 30px 30px 30px;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10002;
-  box-sizing: border-box;
-}
-
-/* Clasa activă adăugată din JavaScript */
-.nav-menu.active {
-  right: 0; /* Glisează pe ecran */
-}
-
-/* Buton X interior în meniu */
-.close-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent !important;
-  border: none !important;
-  color: #fff;
-  font-size: 32px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-/* Legăturile din meniu */
-.nav-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.nav-menu a {
-  color: #f0f0f0;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  display: block;
-}
-
-.nav-menu a:hover {
-  color: #e58aa7;
-}
-
-/* Fundalul semitransparent când meniul e deschis */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 10001;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 
 /* ================= HERO ================= */
 .hero{
@@ -205,7 +118,7 @@ html{
   text-align:center;
   background:
     linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-    url("imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d 2.jpg")
+    url("imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d%202.jpg")
     center/cover no-repeat;
 }
 
@@ -1515,7 +1428,7 @@ body::before{
   min-height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.62)),
-    url("imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d 2.jpg")
+    url("imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d%202.jpg")
     center/cover no-repeat;
 }
 
@@ -1755,9 +1668,7 @@ body::before{
   width: 100%;
   height: 100%;
   height: 100dvh;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1769,44 +1680,64 @@ body::before{
   box-sizing: border-box;
   z-index: 999999;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
   overscroll-behavior: contain;
+  /* no backdrop-filter: it breaks position:fixed children on iOS Safari */
 }
 
 .lightbox[aria-hidden="false"] {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+}
+
+/* Ascunde header-ul când lightbox-ul e deschis (evită overlap pe iOS) */
+body.lightbox-open header {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.lightbox-open {
+  overflow: hidden;
 }
 
 .lightbox-content {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 56px 56px 48px;
+  padding: 64px 60px 56px;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
-/* Imaginea centrată */
-.lightbox-content img {
-  max-width: min(85vw, 100%);
-  max-height: min(75vh, 75dvh);
-  width: auto;
-  height: auto;
+/* Imaginea centrată — never inherit gallery thumb styles */
+.lightbox-content img,
+#lightbox-image {
+  max-width: min(86vw, 100%);
+  max-height: min(78vh, 78dvh);
+  width: auto !important;
+  height: auto !important;
   object-fit: contain;
+  border: none;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  filter: none !important;
+  cursor: default;
+  pointer-events: auto;
   opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: none;
+  transition: opacity 0.2s ease;
 }
 
-.lightbox-content img.is-visible {
+.lightbox-content img.is-visible,
+#lightbox-image.is-visible {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* Izolare totală față de stilurile globale de button */
@@ -1832,120 +1763,108 @@ body::before{
   font-weight: 300;
   line-height: 1;
   cursor: pointer;
-  transform: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  transform: none !important;
+  transition: opacity 0.2s ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
   -webkit-appearance: none;
+  touch-action: manipulation;
 }
 
 .lightbox button:hover,
 .lightbox button:active,
 .lightbox button:focus-visible {
-  opacity: 0.75;
+  opacity: 0.7;
   background: transparent !important;
   transform: none !important;
 }
 
-/* X-ul fix în colțul din dreapta sus */
+/* Controale absolute în lightbox (nu fixed) — stabil pe iPhone */
+.lightbox-close,
+.lightbox-arrow {
+  position: absolute;
+  z-index: 2;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  color: #fff;
+}
+
 .lightbox-close {
-  position: fixed;
-  top: max(16px, env(safe-area-inset-top));
-  right: max(16px, env(safe-area-inset-right));
+  top: max(8px, env(safe-area-inset-top));
+  right: max(8px, env(safe-area-inset-right));
   left: auto;
   bottom: auto;
-  font-size: 36px;
-  z-index: 1000000;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  font-size: 34px;
 }
 
-/* Săgețile pe marginile ecranului */
 .lightbox-arrow {
-  position: fixed;
   top: 50%;
-  transform: translateY(-50%) !important;
-  font-size: 44px;
-  z-index: 1000000;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-arrow:hover,
-.lightbox-arrow:active,
-.lightbox-arrow:focus-visible {
-  transform: translateY(-50%) !important;
-  opacity: 0.75;
+  margin-top: -24px;
+  font-size: 42px;
 }
 
 .lightbox-prev {
-  left: max(10px, env(safe-area-inset-left));
+  left: max(4px, env(safe-area-inset-left));
   right: auto;
 }
 
 .lightbox-next {
-  right: max(10px, env(safe-area-inset-right));
+  right: max(4px, env(safe-area-inset-right));
   left: auto;
 }
 
-/* Contorul jos pe mijloc */
 .lightbox-counter {
-  position: fixed;
-  bottom: max(20px, env(safe-area-inset-bottom));
+  position: absolute;
+  bottom: max(14px, env(safe-area-inset-bottom));
   left: 50%;
+  margin-left: 0;
   transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   letter-spacing: 1px;
-  z-index: 1000000;
+  z-index: 2;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
   .lightbox-content {
-    padding: 64px 44px 56px;
+    padding: 56px 48px 52px;
   }
 
-  .lightbox-content img {
-    max-width: min(88vw, 100%);
-    max-height: min(68vh, 68dvh);
+  .lightbox-content img,
+  #lightbox-image {
+    max-width: min(92vw, 100%);
+    max-height: min(72vh, 72dvh);
   }
 
   .lightbox-close {
-    top: max(12px, env(safe-area-inset-top));
-    right: max(12px, env(safe-area-inset-right));
-    font-size: 32px;
-  }
-
-  .lightbox-arrow {
-    font-size: 36px;
+    top: max(6px, env(safe-area-inset-top));
+    right: max(6px, env(safe-area-inset-right));
+    font-size: 30px;
     width: 44px !important;
     height: 44px !important;
     min-width: 44px !important;
     min-height: 44px !important;
   }
 
-  .lightbox-prev {
-    left: max(6px, env(safe-area-inset-left));
-  }
-
-  .lightbox-next {
-    right: max(6px, env(safe-area-inset-right));
+  .lightbox-arrow {
+    font-size: 34px;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    margin-top: -22px;
   }
 
   .lightbox-counter {
-    bottom: max(16px, env(safe-area-inset-bottom));
+    bottom: max(12px, env(safe-area-inset-bottom));
     font-size: 13px;
   }
 }

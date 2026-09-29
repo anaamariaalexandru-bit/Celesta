@@ -6,42 +6,23 @@
   <title>Celesta</title>
 
   <link rel="preload" as="image" href="imagini/63c2bac1-b976-4794-8f7e-fd996bc3b64d%202.jpg">
-  <link rel="stylesheet" href="style.css?v=2.1">
+  <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 
 <body>
   <div class="stars"></div>
 
-  <header class="header">
-  <div class="header-container">
-    <!-- Logo sau Titlul Site-ului -->
-    <a href="#" class="logo">Celesta</a>
+  <header>
+    <h1>Ansamblul vocal-instrumental "Celesta"</h1>
 
-    <!-- Butonul cu cele 3 liniuțe (Hamburger) -->
-    <button class="hamburger" id="hamburger-btn" aria-label="Deschide meniul">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Meniul lateral care glisează din dreapta -->
-    <nav class="nav-menu" id="nav-menu">
-      <!-- Butonul X de închidere din interiorul meniului -->
-      <button class="close-menu" id="close-menu-btn" aria-label="Închide meniul">&times;</button>
-      
-      <ul>
-        <li><a href="#home" class="nav-link">Acasă</a></li>
-        <li><a href="#despre" class="nav-link">Despre Noi</a></li>
-        <li><a href="#galerie" class="nav-link">Galerie</a></li>
-        <li><a href="#evenimente" class="nav-link">Evenimente</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+    <nav>
+      <a href="evenimente.html" class="active">Acasă</a>
+      <a href="despre.html">Despre noi</a>
+      <a href="evenimente.html">Evenimente</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="contact.html">Contact</a>
     </nav>
-
-    <!-- Fundal întunecat când meniul este deschis -->
-    <div class="menu-overlay" id="menu-overlay"></div>
-  </div>
-</header>
+  </header>
 
   <section class="hero hero-home">
     <div class="hero-overlay"></div>
@@ -133,8 +114,9 @@
 
     <div class="lightbox-content">
       <img id="lightbox-image" src="" alt="Imagine mărită din galeria Celesta">
-      <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
     </div>
+
+    <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
 
     <button class="lightbox-arrow lightbox-next" type="button" aria-label="Imaginea următoare">
       ›
@@ -143,6 +125,6 @@
 
   <footer>&copy; 2026 Celesta</footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2.4"></script>
 </body>
 </html>

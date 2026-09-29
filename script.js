@@ -13,38 +13,6 @@ const eventVideoGrid = document.querySelector("#event-video-grid");
 
 let currentEventType = "";
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const closeMenuBtn = document.getElementById('close-menu-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const menuOverlay = document.getElementById('menu-overlay');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  // Deschide meniul
-  function openMenu() {
-    navMenu.classList.add('active');
-    menuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Blochează scroll-ul paginii
-  }
-
-  // Închide meniul
-  function closeMenu() {
-    navMenu.classList.remove('active');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = ''; // Deblochează scroll-ul
-  }
-
-  hamburgerBtn.addEventListener('click', openMenu);
-  closeMenuBtn.addEventListener('click', closeMenu);
-  menuOverlay.addEventListener('click', closeMenu);
-
-  // Închide meniul automat când apeși pe o opțiune/link
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-});
-
 /* =========================
    PLAYLIST PAGE REFERENCES
    Referințe pentru taburi, lista de melodii și textul de descriere.
@@ -602,21 +570,31 @@ function updateLightboxCounter() {
   lightboxCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
 }
 
-function animateLightboxImage(src, alt) {
+function revealLightboxImage() {
+  if (!lightboxImage) return;
+  lightboxImage.classList.add("is-visible");
+}
+
+function setLightboxImage(src, alt) {
   if (!lightboxImage) return;
 
   lightboxImage.classList.remove("is-visible");
+  lightboxImage.alt = alt || "Imagine din galeria Celesta";
 
-  window.setTimeout(() => {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || "Imagine din galeria Celesta";
+  const finish = () => revealLightboxImage();
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        lightboxImage.classList.add("is-visible");
-      });
-    });
-  }, 160);
+  if (lightboxImage.src === src && lightboxImage.complete && lightboxImage.naturalWidth > 0) {
+    requestAnimationFrame(finish);
+    return;
+  }
+
+  lightboxImage.onload = finish;
+  lightboxImage.onerror = finish;
+  lightboxImage.src = src;
+
+  if (lightboxImage.complete && lightboxImage.naturalWidth > 0) {
+    finish();
+  }
 }
 
 function showLightboxImage(index) {
@@ -625,7 +603,7 @@ function showLightboxImage(index) {
   currentImageIndex = (index + images.length) % images.length;
   const selectedImage = images[currentImageIndex];
 
-  animateLightboxImage(selectedImage.src, selectedImage.alt);
+  setLightboxImage(selectedImage.src, selectedImage.alt);
   updateLightboxCounter();
 }
 
@@ -635,27 +613,26 @@ function openLightbox(index) {
   currentImageIndex = index;
   const selectedImage = images[currentImageIndex];
 
-  lightboxImage.classList.remove("is-visible");
-  lightboxImage.src = selectedImage.src;
-  lightboxImage.alt = selectedImage.alt || "Imagine din galeria Celesta";
-
+  setLightboxImage(selectedImage.src, selectedImage.alt);
   lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
   document.body.style.overflow = "hidden";
+  document.body.style.touchAction = "none";
   updateLightboxCounter();
-
-  requestAnimationFrame(() => {
-    lightboxImage.classList.add("is-visible");
-  });
 }
 
 function closeLightbox() {
   if (!lightbox) return;
 
   lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
   document.body.style.overflow = "";
+  document.body.style.touchAction = "";
 
   if (lightboxImage) {
     lightboxImage.classList.remove("is-visible");
+    lightboxImage.onload = null;
+    lightboxImage.onerror = null;
   }
 }
 
@@ -721,15 +698,30 @@ if (eventCards.length && eventModal) {
 
 if (images.length && lightbox) {
   images.forEach((img, index) => {
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (event) => {
+      event.preventDefault();
       openLightbox(index);
     });
   });
 
-  lightboxClose?.addEventListener("click", closeLightbox);
-  lightboxNext?.addEventListener("click", showNextImage);
-  lightboxPrev?.addEventListener("click", showPrevImage);
+  lightboxClose?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    closeLightbox();
+  });
+  lightboxNext?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    showNextImage();
+  });
+  lightboxPrev?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    showPrevImage();
+  });
 
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target === lightbox.querySelector(".lightbox-content")) {
+      closeLightbox();
+    }
+  });
 
   document.addEventListener("keydown", handleLightboxKeyboard);
 }
