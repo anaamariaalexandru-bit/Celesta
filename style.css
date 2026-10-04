@@ -72,156 +72,126 @@ html{
 
 
 /* ================= HEADER & NAVBAR ================= */
-/* ================= HEADER & NAVBAR ================= */
 header.navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex ;
-  flex-direction: row ; /* Obligatoriu pe un singur rând */
-  justify-content: space-between ;
-  align-items: center ;
-  flex-wrap: nowrap ; /* Împiedică liniuțele să cadă sub scris */
-  padding: 14px 18px;
-  background: rgba(10, 10, 10, 0.95) ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border: none ;
-  box-shadow: none ;
+  border: none !important;
+  box-shadow: none !important;
   box-sizing: border-box;
 }
 
-/* Containerul titlului */
-.logo {
-  flex: 1; /* Ocupă spațiul liber din stânga */
-  min-width: 0; /* Previne împingerea elementului din dreapta */
-  margin-right: 12px;
-}
-
-/* Titlul din stânga */
+/* Titlu în stânga */
 .logo h1, 
 header h1 {
-  font-family: 'Coneria', cursive ;
-  font-size: 18px ; /* Dimensiune optimizată pentru mobil */
-  color: #e58aa7 ;
-  font-weight: 400 ;
-  margin: 0 ;
-  padding: 0 ;
-  white-space: nowrap ; /* Ține titlul pe o singură linie */
-  overflow: hidden ;
-  text-overflow: ellipsis ; /* Dacă ecranul e extrem de mic, taie frumos cu ... */
-  background: transparent ;
-  border: none ;
+  font-family: 'Coneria', cursive;
+  font-size: 26px;
+  color: #e58aa7;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
 }
 
-/* Butonul Hamburger - FIXĂ ÎN DREAPTA */
-button.hamburger {
-  display: flex ;
-  flex-direction: column ;
-  justify-content: space-between ;
-  width: 28px ;
-  height: 20px ;
-  flex-shrink: 0 ; /* OBLIGATORIU: Nu lasă liniuțele să se strângă sau să cadă jos */
-  background: none ;
-  border: none ;
-  outline: none ;
-  cursor: pointer ;
-  padding: 0 ;
-  margin: 0 ;
-  box-shadow: none ;
+/* Butonul hamburger (cele 3 liniuțe puțin mai mari) */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px; /* Puțin mai mare */
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   z-index: 1001;
 }
 
-button.hamburger span {
-  display: block ;
-  width: 100% ;
-  height: 3px ;
-  background-color: #ffffff ;
-  border-radius: 3px ;
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
   transition: all 0.3s ease;
 }
 
-/* Panoul lateral (Slide-in Drawer) - Identic și pe mobil, și pe laptop */
+/* Panoul lateral care glisează din dreapta pe TOATĂ ÎNĂLȚIMEA ECRANULUI */
 .nav-menu {
-  position: fixed ;
-  top: 0 ;
-  right: -320px ; /* Ascuns în afara ecranului */
-  width: 280px ; /* Lățime elegantă de panou pe orice ecran */
-  max-width: 80vw ;
-  height: 100vh ;
-  background-color: rgba(15, 15, 15, 0.98) ;
-  backdrop-filter: blur(15px);
-  display: flex ;
-  flex-direction: column ;
-  justify-content: center ;
-  align-items: center ;
-  gap: 25px ;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) ;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) ;
+  position: fixed;
+  top: 0;
+  right: -100%; /* Ascuns în afara ecranului la dreapta */
+  width: 320px; /* Lățime fixă pe laptop */
+  max-width: 85vw; /* Pe telefoane ocupă 85% din ecran */
+  height: 100vh; /* Ocupă tot ecranul de sus până jos */
+  background-color: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.7);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animație smooth */
   z-index: 2000;
-  padding: 0 ;
-  margin: 0 ;
 }
 
-/* Meniul deschis */
+/* Clasa active aduce panoul pe ecran */
 .nav-menu.active {
-  right: 0 ;
+  right: 0;
 }
 
-/* Butonul 'X' de închidere - Fără casetă roz, se colorează doar X-ul */
-button.close-btn {
-  position: absolute ;
-  top: 20px ;
-  right: 25px ;
-  background: transparent ;
-  background-color: transparent ;
-  border: none ;
-  outline: none ;
-  color: #ffffff ;
-  font-size: 34px ;
-  cursor: pointer ;
-  line-height: 1 ;
-  padding: 0 ;
-  margin: 0 ;
-  box-shadow: none ;
-  transition: color 0.2s ease, transform 0.2s ease ;
-}
-
-button.close-btn:hover,
-button.close-btn:focus,
-button.close-btn:active {
-  background: transparent ;
-  background-color: transparent ;
-  color: #e58aa7 ; /* Se face doar litera roz */
-  transform: scale(1.1);
-  box-shadow: none ;
+/* Butonul 'X' de închidere din interiorul panoului */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 36px;
+  cursor: pointer;
+  line-height: 1;
 }
 
 /* Link-urile din meniu */
 .nav-menu a {
-  color: #ffffff ;
-  text-decoration: none ;
-  font-size: 18px ;
-  font-weight: 600 ;
-  letter-spacing: 1px ;
-  transition: color 0.2s ease, transform 0.2s ease ;
-  background: transparent ;
-  border: none ;
-  display: inline-block ;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-  color: #e58aa7 ;
-  transform: translateX(4px);
+  color: #e58aa7;
+  transform: translateX(5px);
 }
 
-/* Ajustare font titlu pe telefoane foarte mici */
-@media (max-width: 480px) {
+/* Adaptare font titlu pe telefoane mici */
+@media (max-width: 600px) {
+  header.navbar {
+    padding: 14px 20px;
+  }
+  
   .logo h1, 
   header h1 {
-    font-size: 17px ;
+    font-size: 19px;
+  }
+  
+  .hamburger {
+    width: 30px;
+    height: 22px;
   }
 }
 
@@ -1837,13 +1807,13 @@ body.lightbox-open {
 #lightbox-image {
   max-width: min(86vw, 100%);
   max-height: min(78vh, 78dvh);
-  width: auto ;
-  height: auto ;
+  width: auto !important;
+  height: auto !important;
   object-fit: contain;
   border: none;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-  filter: none ;
+  filter: none !important;
   cursor: default;
   pointer-events: auto;
   opacity: 0;
@@ -1871,15 +1841,15 @@ body.lightbox-open {
   margin: 0;
   border: none;
   border-radius: 0;
-  background: transparent ;
-  box-shadow: none ;
+  background: transparent !important;
+  box-shadow: none !important;
   outline: none;
   color: #ffffff;
   font-family: inherit;
   font-weight: 300;
   line-height: 1;
   cursor: pointer;
-  transform: none ;
+  transform: none !important;
   transition: opacity 0.2s ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
@@ -1892,8 +1862,8 @@ body.lightbox-open {
 .lightbox button:active,
 .lightbox button:focus-visible {
   opacity: 0.7;
-  background: transparent ;
-  transform: none ;
+  background: transparent !important;
+  transform: none !important;
 }
 
 /* Controale absolute în lightbox (nu fixed) — stabil pe iPhone */
@@ -1901,13 +1871,13 @@ body.lightbox-open {
 .lightbox-arrow {
   position: absolute;
   z-index: 2;
-  display: flex ;
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  width: 48px ;
-  height: 48px ;
-  min-width: 48px ;
-  min-height: 48px ;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
   color: #fff;
 }
 
@@ -1964,18 +1934,18 @@ body.lightbox-open {
     top: max(6px, env(safe-area-inset-top));
     right: max(6px, env(safe-area-inset-right));
     font-size: 30px;
-    width: 44px ;
-    height: 44px ;
-    min-width: 44px ;
-    min-height: 44px ;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 
   .lightbox-arrow {
     font-size: 34px;
-    width: 44px ;
-    height: 44px ;
-    min-width: 44px ;
-    min-height: 44px ;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
     margin-top: -22px;
   }
 
