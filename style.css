@@ -72,136 +72,148 @@ html{
 
 
 /* ================= HEADER & NAVBAR ================= */
+/* ================= HEADER & NAVBAR ================= */
 header.navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  background: rgba(10, 10, 10, 0.95) !important;
+  display: flex ;
+  flex-direction: row ; /* Obligatoriu pe un singur rând */
+  justify-content: space-between ;
+  align-items: center ;
+  flex-wrap: nowrap ; /* Împiedică liniuțele să cadă sub scris */
+  padding: 14px 18px;
+  background: rgba(10, 10, 10, 0.95) ;
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border: none !important;
-  box-shadow: none !important;
+  border: none ;
+  box-shadow: none ;
   box-sizing: border-box;
+}
+
+/* Containerul titlului */
+.logo {
+  flex: 1; /* Ocupă spațiul liber din stânga */
+  min-width: 0; /* Previne împingerea elementului din dreapta */
+  margin-right: 12px;
 }
 
 /* Titlul din stânga */
 .logo h1, 
 header h1 {
-  font-family: 'Coneria', cursive !important;
-  font-size: 22px !important;
-  color: #e58aa7 !important;
-  font-weight: 400 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: auto !important;
+  font-family: 'Coneria', cursive ;
+  font-size: 18px ; /* Dimensiune optimizată pentru mobil */
+  color: #e58aa7 ;
+  font-weight: 400 ;
+  margin: 0 ;
+  padding: 0 ;
+  white-space: nowrap ; /* Ține titlul pe o singură linie */
+  overflow: hidden ;
+  text-overflow: ellipsis ; /* Dacă ecranul e extrem de mic, taie frumos cu ... */
+  background: transparent ;
+  border: none ;
 }
 
-/* Butonul Hamburger - 3 liniuțe curate (fără niciun fundal/dunga roz) */
+/* Butonul Hamburger - FIXĂ ÎN DREAPTA */
 button.hamburger {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  width: 30px !important;
-  height: 20px !important;
-  background: none !important;
-  border: none !important;
-  outline: none !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-shadow: none !important;
+  display: flex ;
+  flex-direction: column ;
+  justify-content: space-between ;
+  width: 28px ;
+  height: 20px ;
+  flex-shrink: 0 ; /* OBLIGATORIU: Nu lasă liniuțele să se strângă sau să cadă jos */
+  background: none ;
+  border: none ;
+  outline: none ;
+  cursor: pointer ;
+  padding: 0 ;
+  margin: 0 ;
+  box-shadow: none ;
   z-index: 1001;
 }
 
 button.hamburger span {
-  display: block !important;
-  width: 100% !important;
-  height: 3px !important;
-  background-color: #ffffff !important;
-  border-radius: 3px !important;
+  display: block ;
+  width: 100% ;
+  height: 3px ;
+  background-color: #ffffff ;
+  border-radius: 3px ;
   transition: all 0.3s ease;
 }
 
 /* Panoul lateral (Slide-in Drawer) - Identic și pe mobil, și pe laptop */
 .nav-menu {
-  position: fixed !important;
-  top: 0 !important;
-  right: -320px !important; /* Ascuns în afara ecranului */
-  width: 280px !important; /* Lățime elegantă de panou pe orice ecran */
-  max-width: 80vw !important;
-  height: 100vh !important;
-  background-color: rgba(15, 15, 15, 0.98) !important;
+  position: fixed ;
+  top: 0 ;
+  right: -320px ; /* Ascuns în afara ecranului */
+  width: 280px ; /* Lățime elegantă de panou pe orice ecran */
+  max-width: 80vw ;
+  height: 100vh ;
+  background-color: rgba(15, 15, 15, 0.98) ;
   backdrop-filter: blur(15px);
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 25px !important;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) !important;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex ;
+  flex-direction: column ;
+  justify-content: center ;
+  align-items: center ;
+  gap: 25px ;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) ;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) ;
   z-index: 2000;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 0 ;
+  margin: 0 ;
 }
 
 /* Meniul deschis */
 .nav-menu.active {
-  right: 0 !important;
+  right: 0 ;
 }
 
 /* Butonul 'X' de închidere - Fără casetă roz, se colorează doar X-ul */
 button.close-btn {
-  position: absolute !important;
-  top: 20px !important;
-  right: 25px !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  color: #ffffff !important;
-  font-size: 34px !important;
-  cursor: pointer !important;
-  line-height: 1 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-shadow: none !important;
-  transition: color 0.2s ease, transform 0.2s ease !important;
+  position: absolute ;
+  top: 20px ;
+  right: 25px ;
+  background: transparent ;
+  background-color: transparent ;
+  border: none ;
+  outline: none ;
+  color: #ffffff ;
+  font-size: 34px ;
+  cursor: pointer ;
+  line-height: 1 ;
+  padding: 0 ;
+  margin: 0 ;
+  box-shadow: none ;
+  transition: color 0.2s ease, transform 0.2s ease ;
 }
 
 button.close-btn:hover,
 button.close-btn:focus,
 button.close-btn:active {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: #e58aa7 !important; /* Se face doar litera roz */
+  background: transparent ;
+  background-color: transparent ;
+  color: #e58aa7 ; /* Se face doar litera roz */
   transform: scale(1.1);
-  box-shadow: none !important;
+  box-shadow: none ;
 }
 
 /* Link-urile din meniu */
 .nav-menu a {
-  color: #ffffff !important;
-  text-decoration: none !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  letter-spacing: 1px !important;
-  transition: color 0.2s ease, transform 0.2s ease !important;
-  background: transparent !important;
-  border: none !important;
-  display: inline-block !important;
+  color: #ffffff ;
+  text-decoration: none ;
+  font-size: 18px ;
+  font-weight: 600 ;
+  letter-spacing: 1px ;
+  transition: color 0.2s ease, transform 0.2s ease ;
+  background: transparent ;
+  border: none ;
+  display: inline-block ;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-  color: #e58aa7 !important;
+  color: #e58aa7 ;
   transform: translateX(4px);
 }
 
@@ -209,7 +221,7 @@ button.close-btn:active {
 @media (max-width: 480px) {
   .logo h1, 
   header h1 {
-    font-size: 17px !important;
+    font-size: 17px ;
   }
 }
 
@@ -1825,13 +1837,13 @@ body.lightbox-open {
 #lightbox-image {
   max-width: min(86vw, 100%);
   max-height: min(78vh, 78dvh);
-  width: auto !important;
-  height: auto !important;
+  width: auto ;
+  height: auto ;
   object-fit: contain;
   border: none;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-  filter: none !important;
+  filter: none ;
   cursor: default;
   pointer-events: auto;
   opacity: 0;
@@ -1859,15 +1871,15 @@ body.lightbox-open {
   margin: 0;
   border: none;
   border-radius: 0;
-  background: transparent !important;
-  box-shadow: none !important;
+  background: transparent ;
+  box-shadow: none ;
   outline: none;
   color: #ffffff;
   font-family: inherit;
   font-weight: 300;
   line-height: 1;
   cursor: pointer;
-  transform: none !important;
+  transform: none ;
   transition: opacity 0.2s ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
@@ -1880,8 +1892,8 @@ body.lightbox-open {
 .lightbox button:active,
 .lightbox button:focus-visible {
   opacity: 0.7;
-  background: transparent !important;
-  transform: none !important;
+  background: transparent ;
+  transform: none ;
 }
 
 /* Controale absolute în lightbox (nu fixed) — stabil pe iPhone */
@@ -1889,13 +1901,13 @@ body.lightbox-open {
 .lightbox-arrow {
   position: absolute;
   z-index: 2;
-  display: flex !important;
+  display: flex ;
   align-items: center;
   justify-content: center;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
+  width: 48px ;
+  height: 48px ;
+  min-width: 48px ;
+  min-height: 48px ;
   color: #fff;
 }
 
@@ -1952,18 +1964,18 @@ body.lightbox-open {
     top: max(6px, env(safe-area-inset-top));
     right: max(6px, env(safe-area-inset-right));
     font-size: 30px;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
+    width: 44px ;
+    height: 44px ;
+    min-width: 44px ;
+    min-height: 44px ;
   }
 
   .lightbox-arrow {
     font-size: 34px;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
+    width: 44px ;
+    height: 44px ;
+    min-width: 44px ;
+    min-height: 44px ;
     margin-top: -22px;
   }
 
