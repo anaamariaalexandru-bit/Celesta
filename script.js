@@ -15,13 +15,30 @@ let currentEventType = "";
 
 
 const hamburger = document.getElementById('hamburger');
+const closeBtn = document.getElementById('close-btn');
 const navMenu = document.getElementById('nav-menu');
 
+// Deschide meniul
 if (hamburger && navMenu) {
   hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+    navMenu.classList.add('active');
   });
 }
+
+// Închide meniul la click pe X
+if (closeBtn && navMenu) {
+  closeBtn.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+}
+
+// Închide meniul când dai click pe un link din el
+const navLinks = document.querySelectorAll('.nav-menu a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});
 
 /* =========================
    PLAYLIST PAGE REFERENCES
