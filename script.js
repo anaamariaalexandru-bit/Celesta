@@ -13,6 +13,16 @@ const eventVideoGrid = document.querySelector("#event-video-grid");
 
 let currentEventType = "";
 
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+}
+
 /* =========================
    PLAYLIST PAGE REFERENCES
    Referințe pentru taburi, lista de melodii și textul de descriere.
