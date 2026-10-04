@@ -18,25 +18,33 @@ const hamburger = document.getElementById('hamburger');
 const closeBtn = document.getElementById('close-btn');
 const navMenu = document.getElementById('nav-menu');
 
-// Deschide meniul
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.add('active');
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const closeBtn = document.getElementById('close-btn');
+  const navMenu = document.getElementById('nav-menu');
 
-// Închide meniul la click pe X
-if (closeBtn && navMenu) {
-  closeBtn.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-  });
-}
+  // Deschide meniul la click pe liniuțe
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.add('active');
+    });
+  }
 
-// Închide meniul când dai click pe un link din el
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
+  // Închide meniul la click pe X
+  if (closeBtn && navMenu) {
+    closeBtn.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  }
+
+  // Închide meniul automat când dai click pe un link
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu) {
+        navMenu.classList.remove('active');
+      }
+    });
   });
 });
 
