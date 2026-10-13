@@ -71,118 +71,69 @@ html{
 
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-/* ================= HEADER & NAVBAR (RESPONSIVE COMPLET) ================= */
+/* ================= HEADER & NAVBAR ================= */
 header.navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Padding fluid: 12px sus/jos și între 10px și 30px stânga/dreapta */
-  padding: 12px clamp(10px, 3vw, 30px);
-  background: rgba(10, 10, 10, 0.95);
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important; /* Împiedică trecerea meniului sub logo */
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 10px clamp(4px, 2vw, 24px) !important;
+  background: rgba(10, 10, 10, 0.96) !important;
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(229, 138, 167, 0.3);
-  box-sizing: border-box;
+  border-bottom: 2px solid #e58aa7 !important;
+  box-sizing: border-box !important;
 }
 
-/* Ascundem complet butonul hamburger dacă mai există în cod */
-button.hamburger,
-button.close-btn {
-  display: none;
+/* Ascundem definitiv butoanele de mobil */
+.hamburger,
+.close-btn,
+button.close-btn,
+button.hamburger {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-
-/* Reguli pentru Logo */
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrează 'Celesta' exact pe mijloc sub textul de sus */
-  text-align: center;
-  flex-shrink: 0;
-}
-
-/* Textul de sus: Ansamblul Vocal-Instrumental */
-.logo-accent {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
-  font-style: italic;
-  font-size: 16px;
-  color: #e58aa7; /* TOT roz */
-  line-height: 1.1;
-}
-
-/* Cuvântul de jos: Celesta (fără ghilimele, centrat pe mijloc, italic, TOT roz) */
-.logo h1,
-.logo-title,
-header h1 {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
-  font-style: italic;
-  font-size: 26px;
-  font-weight: 400;
-  color: #e58aa7; /* TOT roz */
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  width: auto;
-}
-
-/* Containerul meniului - Întotdeauna orizontal */
+/* MENIUL: Întotdeauna în dreapta logo-ului, pe un singur rând */
 .nav-menu {
-  position: static;
-  width: auto;
-  height: auto;
-  background: transparent;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* Distanța dintre butoane scade fluid de la 20px pe laptop la 4px pe telefon */
-  gap: clamp(4px, 1.5vw, 20px);
-  box-shadow: none;
-  padding: 0;
+  position: static !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: clamp(2px, 1vw, 16px) !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Link-urile din meniu */
+/* Opțiunile din meniu */
 .nav-menu a {
-  color: #ffffff;
-  /* Mărimea textului scade automat pe telefoane ca să încapă toate */
-  font-size: clamp(9px, 1.6vw, 12px);
-  font-weight: 600;
-  letter-spacing: clamp(0.5px, 0.2vw, 2px);
-  text-transform: uppercase;
-  text-decoration: none;
-  /* Padding-ul butonului scade fluid */
-  padding: 6px clamp(4px, 1vw, 14px);
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  font-size: clamp(8px, 1.3vw, 13px) !important;
+  padding: 4px clamp(2px, 0.5vw, 6px) !important;
+  white-space: nowrap !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease !important;
 }
 
-.nav-menu a:hover {
-  color: #e58aa7;
-}
-
-/* Caseta roz pe pagina activă */
+.nav-menu a:hover,
 .nav-menu a.active {
-  background: #e58aa7;
-  color: #0a0a0a;
-  font-weight: 700;
-}
-
-/* Ajustare suplimentară pentru ecrane extrem de înguste (sub 400px) */
-@media (max-width: 400px) {
-  header.navbar {
-    padding: 10px 6px;
-  }
-  
-  .logo-accent {
-    display: none; /* Ascunde subtitlul scurt pe telefoane foarte mici pentru a lăsa loc meniului */
-  }
+  color: #e58aa7 !important;
+  background: transparent !important;
 }
 
 /* ================= HERO ================= */
