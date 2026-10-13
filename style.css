@@ -71,7 +71,7 @@ html{
 
 
 
-/* ================= HEADER & NAVBAR ================= */
+/* ================= HEADER & NAVBAR (RESPONSIVE COMPLET) ================= */
 header.navbar {
   position: fixed;
   top: 0;
@@ -80,179 +80,106 @@ header.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 40px;
-  background: rgba(10, 10, 10, 0.95);
+  /* Padding fluid: 12px sus/jos și între 10px și 30px stânga/dreapta */
+  padding: 12px clamp(10px, 3vw, 30px);
+  background: rgba(10, 10, 10, 0.95) !important;
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(229, 138, 167, 0.4); /* Linie roz discretă în josul barei */
+  border-bottom: 1px solid rgba(229, 138, 167, 0.3) !important;
   box-sizing: border-box;
 }
 
-/* Logo caligrafic cu subtitlu (stilul din imagine) */
+/* Ascundem complet butonul hamburger dacă mai există în cod */
+button.hamburger,
+button.close-btn {
+  display: none !important;
+}
+
+/* Logo caligrafic cu titlu */
 .logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  flex-shrink: 0; /* Previne strângerea logo-ului */
 }
 
 .logo-accent {
   font-family: 'Coneria', cursive, sans-serif;
-  font-size: 18px;
+  /* Mărime fluidă a scrisului caligrafic pe ecrane mici */
+  font-size: clamp(13px, 2.5vw, 18px);
   color: #e58aa7;
   line-height: 1;
-  margin-bottom: -2px;
+  white-space: nowrap;
 }
 
 .logo h1, 
 header h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  width: auto;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: clamp(11px, 2.2vw, 16px) !important;
+  font-weight: 700 !important;
+  letter-spacing: clamp(1px, 0.3vw, 2.5px) !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: auto !important;
+  white-space: nowrap;
 }
 
-/* Meniul de navigație pe desktop (orizontal, majuscule, ca în poze) */
-@media (min-width: 851px) {
-  button.hamburger {
-    display: none;
-  }
-
-  .nav-menu {
-    position: static;
-    width: auto;
-    height: auto;
-    background: transparent;
-    backdrop-filter: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 32px;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  button.close-btn {
-    display: none;
-  }
-
-  .nav-menu a {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .nav-menu a:hover,
-  .nav-menu a.active {
-    color: #e58aa7;
-    transform: none;
-  }
-
-  /* Butonul evidențiat din dreapta (stil casetă/SEARCH din poză, cu culorile tale) */
-  .nav-menu a.nav-btn-highlight {
-    background: #e58aa7;
-    color: #0a0a0a;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-weight: 700;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .nav-menu a.nav-btn-highlight:hover {
-    background: #ef97ab;
-    color: #0a0a0a;
-    transform: translateY(-1px);
-  }
+/* Containerul meniului - Întotdeauna orizontal */
+.nav-menu {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  /* Distanța dintre butoane scade fluid de la 20px pe laptop la 4px pe telefon */
+  gap: clamp(4px, 1.5vw, 20px) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
-/* Adaptare mobil (Hamburger menu) */
-@media (max-width: 850px) {
+/* Link-urile din meniu */
+.nav-menu a {
+  color: #ffffff !important;
+  /* Mărimea textului scade automat pe telefoane ca să încapă toate */
+  font-size: clamp(9px, 1.6vw, 12px) !important;
+  font-weight: 600 !important;
+  letter-spacing: clamp(0.5px, 0.2vw, 2px) !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  /* Padding-ul butonului scade fluid */
+  padding: 6px clamp(4px, 1vw, 14px) !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap;
+}
+
+.nav-menu a:hover {
+  color: #e58aa7 !important;
+}
+
+/* Caseta roz pe pagina activă */
+.nav-menu a.active {
+  background: #e58aa7 !important;
+  color: #0a0a0a !important;
+  font-weight: 700 !important;
+}
+
+/* Ajustare suplimentară pentru ecrane extrem de înguste (sub 400px) */
+@media (max-width: 400px) {
   header.navbar {
-    padding: 14px 20px;
+    padding: 10px 6px;
   }
-
-  button.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 18px;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-  }
-
-  button.hamburger span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -320px;
-    width: 280px;
-    max-width: 80vw;
-    height: 100vh;
-    background-color: rgba(15, 15, 15, 0.98);
-    backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2000;
-  }
-
-  .nav-menu.active {
-    right: 0;
-  }
-
-  button.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 34px;
-    cursor: pointer;
-  }
-
-  .nav-menu a {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .nav-menu a.nav-btn-highlight {
-    background: #e58aa7;
-    color: #0a0a0a;
-    padding: 10px 24px;
-    border-radius: 4px;
+  
+  .logo-accent {
+    display: none; /* Ascunde subtitlul scurt pe telefoane foarte mici pentru a lăsa loc meniului */
   }
 }
 
