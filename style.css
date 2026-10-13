@@ -2178,23 +2178,26 @@ footer{
 
 /* Pe desktop/laptop păstrăm distanțele naturale și hero-ul complet */
 body {
-  padding-top: 80px !important;
+  padding-top: 80px;
 }
 
 /* Ajustare specială DOAR pentru ecrane mici (mobl/tablete) */
 @media (max-width: 768px) {
   body {
-    padding-top: 60px !important;
+    padding-top: 55px;
   }
 
-  /* Doar pe mobil eliminăm golul uriaș de pe paginile secundare */
+  /* Resetăm spațierea de sus pentru prima secțiune de pe TOATE paginile */
+  main,
+  section,
+  .hero,
+  .page-header,
   .about-hero,
   .events-hero,
   .playlist-hero,
-  .contact-hero,
-  .page-header {
-    padding-top: 25px !important;
-    margin-top: 0 !important;
-    min-height: auto !important;
+  .contact-hero {
+    padding-top: 10px; /* Distanță mică, elegantă, la fel pe toate */
+    margin-top: 0;
+    min-height: auto;
   }
 }
