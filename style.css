@@ -92,46 +92,23 @@ header.navbar {
 
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-/* Style pentru Logo */
+/* Containerul pentru logo-ul imagine */
 .logo {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrează 'Celesta' pe mijloc sub textul de sus */
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  white-space: nowrap;
 }
 
-/* Textul de sus: Ansamblul Vocal-Instrumental (italic, font caligrafic, roz) */
-.logo-accent {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
-  font-style: italic;
-  font-size: clamp(12px, 2vw, 17px);
-  color: #e58aa7; /* ROZ */
-  line-height: 1.1;
-  letter-spacing: 0.5px;
-}
-
-/* Titlul de jos: Celesta (fără ghilimele, centrat pe mijloc, italic, roz) */
-.logo h1,
-.logo-title,
-header h1 {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
-  font-style: italic;
-  font-size: clamp(18px, 3.2vw, 26px);
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: none;
-  color: #e58aa7; /* ROZ */
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+/* Imaginea logo-ului (cercul roz) */
+.logo-img {
+  height: clamp(35px, 5vw, 55px); /* Dimensiune adaptabilă */
   width: auto;
-  text-align: center;
-  white-space: nowrap;
+  border-radius: 50%; /* Asigură o formă perfect rotundă */
+  object-fit: contain;
+  display: block;
 }
+
 
 /* Ascundem definitiv butoanele de mobil */
 .hamburger,
