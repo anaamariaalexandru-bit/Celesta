@@ -384,16 +384,6 @@ body::before{
   font-size:16px;
 }
 
-/* Permite gesturile libere de pinch-to-zoom pe imaginile din galerie */
-.gallery img,
-.lightbox img,
-.modal-content img,
-.photo-card img {
-  touch-action: pan-x pan-y pinch-zoom !important;
-  max-width: 100%;
-  height: auto;
-}
-
 /* ================= EVENTS PAGE ================= */
 .events-page{
   max-width:1180px;
@@ -2210,4 +2200,21 @@ body {
     margin-top: 0;
     min-height: auto;
   }
+}
+
+
+/* Permite gesturile libere de pinch-to-zoom pe mobil în galerie */
+html, body {
+  touch-action: manipulation !important;
+}
+
+.gallery img,
+.lightbox img,
+.modal img,
+.modal-content img,
+.photo-card img,
+.event-card img {
+  touch-action: pan-x pan-y pinch-zoom !important;
+  max-width: 100%;
+  height: auto;
 }
