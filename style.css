@@ -1859,14 +1859,32 @@ body.lightbox-open {
   font-size: 42px;
 }
 
+/* Mărirea zonei de click/touch pentru săgețile din galerie */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 65px;            /* Dimensiune generoasă pentru apăsare */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;        /* Săgeată ușor mai lizibilă */
+  background: rgba(0, 0, 0, 0.3); /* Fundal discret sub săgeți */
+  border-radius: 8px;
+  z-index: 1000;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Poziționare pe margini */
 .lightbox-prev {
-  left: max(4px, env(safe-area-inset-left));
-  right: auto;
+  left: 10px;
 }
 
 .lightbox-next {
-  right: max(4px, env(safe-area-inset-right));
-  left: auto;
+  right: 10px;
 }
 
 .lightbox-counter {
@@ -2205,7 +2223,7 @@ body {
 
 /* Permite gesturile libere de pinch-to-zoom pe mobil în galerie */
 html, body {
-  touch-action: manipulation !important;
+  touch-action: manipulation;
 }
 
 .gallery img,
@@ -2214,7 +2232,7 @@ html, body {
 .modal-content img,
 .photo-card img,
 .event-card img {
-  touch-action: pan-x pan-y pinch-zoom !important;
+  touch-action: pan-x pan-y pinch-zoom;
   max-width: 100%;
   height: auto;
 }
