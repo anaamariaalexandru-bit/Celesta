@@ -515,19 +515,19 @@ body::before{
   position: absolute;
   bottom: 15px;
   right: 15px;
-  background-color: rgba(230, 0, 126, 0.1);
-  color: #e6007e;
+  background-color: rgba(212, 114, 158, 0.1);
+  color: #d4729e;
   font-size: 0.85rem;
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 20px;
-  border: 1px solid rgba(230, 0, 126, 0.3);
+  border: 1px solid rgba(212, 114, 158, 0.3);
   transition: all 0.2s ease;
 }
 
 .event-card:hover::after,
 .events-grid > div:hover::after {
-  background-color: #e6007e;
+  background-color: #d4729e;
   color: #ffffff;
 }
 
