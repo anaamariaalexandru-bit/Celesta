@@ -17,6 +17,25 @@ body{
   overflow-x: hidden;
 }
 
+/* Unifică distanța dintre bară și conținut pe toate paginile */
+body {
+  padding-top: 70px !important;
+}
+
+main,
+section,
+.hero,
+.content,
+.about-section,
+.events-section,
+.playlist-section,
+.contact-section,
+.page-title,
+.container {
+  margin-top: 0 !important;
+  padding-top: 10px !important;
+}
+
 html{
   scroll-behavior:smooth;
 }
