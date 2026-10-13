@@ -2176,39 +2176,25 @@ footer{
   cursor: pointer;
 }
 
-/* Realiniere globală: Aduce toate paginile sus, exact la fel ca pagina Acasă */
-
-/* 1. Setează spațiul standard de sus pe body */
+/* Pe desktop/laptop păstrăm distanțele naturale și hero-ul complet */
 body {
-  padding-top: 60px !important;
-  margin-top: 0 !important;
+  padding-top: 80px !important;
 }
 
-/* 2. Anulează spațiile mari / min-height-ul care împingeau titlurile în jos pe celelalte pagini */
-main,
-section,
-header,
-.hero,
-.page-header,
-.hero-section,
-.about-hero,
-.events-hero,
-.playlist-hero,
-.contact-hero,
-.container,
-.wrapper {
-  padding-top: 20px !important;
-  margin-top: 0 !important;
-  min-height: auto !important; /* Împiedică centrarea pe verticală la mijlocul ecranului */
-  justify-content: flex-start !important;
-}
+/* Ajustare specială DOAR pentru ecrane mici (mobl/tablete) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px !important;
+  }
 
-/* 3. Resetează spațiul superior pentru badge-uri / primele titluri din pagini */
-.hero .badge,
-.page-header .badge,
-.hero h1,
-.page-header h1,
-section:first-of-type > *:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  /* Doar pe mobil eliminăm golul uriaș de pe paginile secundare */
+  .about-hero,
+  .events-hero,
+  .playlist-hero,
+  .contact-hero,
+  .page-header {
+    padding-top: 25px !important;
+    margin-top: 0 !important;
+    min-height: auto !important;
+  }
 }
