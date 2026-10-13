@@ -2196,7 +2196,7 @@ body {
   .events-hero,
   .playlist-hero,
   .contact-hero {
-    padding-top: 10px; /* Distanță mică, elegantă, la fel pe toate */
+    padding-top: 5px; /* Distanță mică, elegantă, la fel pe toate */
     margin-top: 0;
     min-height: auto;
   }
