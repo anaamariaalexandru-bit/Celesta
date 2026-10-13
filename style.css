@@ -568,8 +568,8 @@ body::before{
 .event-video-card{
   overflow:hidden;
   border-radius:18px;
-  background:#0e0e0e;
-  border:1px solid rgba(229,138,167,0.16);
+  background:rgba(255, 255, 255, 0.03);
+  border:1px solid rgba(229,138,167,0.2);
 }
 
 .event-video-card video{
