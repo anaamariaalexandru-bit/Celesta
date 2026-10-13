@@ -69,7 +69,7 @@ html{
   }
 }
 
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 /* ================= HEADER & NAVBAR (RESPONSIVE COMPLET) ================= */
 header.navbar {
@@ -82,94 +82,96 @@ header.navbar {
   align-items: center;
   /* Padding fluid: 12px sus/jos și între 10px și 30px stânga/dreapta */
   padding: 12px clamp(10px, 3vw, 30px);
-  background: rgba(10, 10, 10, 0.95) !important;
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(229, 138, 167, 0.3) !important;
+  border-bottom: 1px solid rgba(229, 138, 167, 0.3);
   box-sizing: border-box;
 }
 
 /* Ascundem complet butonul hamburger dacă mai există în cod */
 button.hamburger,
 button.close-btn {
-  display: none !important;
+  display: none;
 }
 
-/* Logo caligrafic cu titlu */
+
+/* Reguli pentru Logo */
 .logo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  flex-shrink: 0; /* Previne strângerea logo-ului */
+  align-items: center; /* Centrează 'Celesta' exact pe mijloc sub textul de sus */
+  text-align: center;
+  flex-shrink: 0;
 }
 
+/* Textul de sus: Ansamblul Vocal-Instrumental */
 .logo-accent {
-  font-family: 'Coneria', cursive, sans-serif;
-  /* Mărime fluidă a scrisului caligrafic pe ecrane mici */
-  font-size: clamp(13px, 2.5vw, 18px);
-  color: #e58aa7;
-  line-height: 1;
-  white-space: nowrap;
+  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #e58aa7; /* TOT roz */
+  line-height: 1.1;
 }
 
-.logo h1, 
+/* Cuvântul de jos: Celesta (fără ghilimele, centrat pe mijloc, italic, TOT roz) */
+.logo h1,
+.logo-title,
 header h1 {
-  font-family: 'Roboto', sans-serif !important;
-  font-size: clamp(11px, 2.2vw, 16px) !important;
-  font-weight: 700 !important;
-  letter-spacing: clamp(1px, 0.3vw, 2.5px) !important;
-  text-transform: uppercase !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: auto !important;
-  white-space: nowrap;
+  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 400;
+  color: #e58aa7; /* TOT roz */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: auto;
 }
 
 /* Containerul meniului - Întotdeauna orizontal */
 .nav-menu {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  background: transparent !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
+  position: static;
+  width: auto;
+  height: auto;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   /* Distanța dintre butoane scade fluid de la 20px pe laptop la 4px pe telefon */
-  gap: clamp(4px, 1.5vw, 20px) !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  gap: clamp(4px, 1.5vw, 20px);
+  box-shadow: none;
+  padding: 0;
 }
 
 /* Link-urile din meniu */
 .nav-menu a {
-  color: #ffffff !important;
+  color: #ffffff;
   /* Mărimea textului scade automat pe telefoane ca să încapă toate */
-  font-size: clamp(9px, 1.6vw, 12px) !important;
-  font-weight: 600 !important;
-  letter-spacing: clamp(0.5px, 0.2vw, 2px) !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
+  font-size: clamp(9px, 1.6vw, 12px);
+  font-weight: 600;
+  letter-spacing: clamp(0.5px, 0.2vw, 2px);
+  text-transform: uppercase;
+  text-decoration: none;
   /* Padding-ul butonului scade fluid */
-  padding: 6px clamp(4px, 1vw, 14px) !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
+  padding: 6px clamp(4px, 1vw, 14px);
+  border-radius: 4px;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .nav-menu a:hover {
-  color: #e58aa7 !important;
+  color: #e58aa7;
 }
 
 /* Caseta roz pe pagina activă */
 .nav-menu a.active {
-  background: #e58aa7 !important;
-  color: #0a0a0a !important;
-  font-weight: 700 !important;
+  background: #e58aa7;
+  color: #0a0a0a;
+  font-weight: 700;
 }
 
 /* Ajustare suplimentară pentru ecrane extrem de înguste (sub 400px) */
