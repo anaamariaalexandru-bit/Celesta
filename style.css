@@ -492,6 +492,45 @@ body::before{
   margin:0;
 }
 
+/* Indicator vizual pentru cardurile interactive din Evenimente */
+.event-card, 
+.events-grid > div {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding-bottom: 50px !important; /* Spațiu în jos pentru buton */
+}
+
+/* Efect de ridicare la hover / atingere */
+.event-card:hover,
+.events-grid > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(230, 0, 126, 0.2);
+}
+
+/* Butonașul de acțiune generat automat în fiecare casetă */
+.event-card::after,
+.events-grid > div::after {
+  content: "Vezi detalii & video ▶";
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(230, 0, 126, 0.1);
+  color: #e6007e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(230, 0, 126, 0.3);
+  transition: all 0.2s ease;
+}
+
+.event-card:hover::after,
+.events-grid > div:hover::after {
+  background-color: #e6007e;
+  color: #ffffff;
+}
+
 .event-video-button{
   margin-top:24px;
   padding:12px 18px;
