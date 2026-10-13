@@ -654,6 +654,9 @@ function openLightbox(index) {
   document.body.style.overflow = "hidden";
   document.body.style.touchAction = "none";
   updateLightboxCounter();
+
+  // Salvează starea în istoricul browserului pentru butonul Înapoi al telefonului
+  history.pushState({ lightboxOpen: true }, "");
 }
 
 function closeLightbox() {
@@ -668,6 +671,11 @@ function closeLightbox() {
     lightboxImage.classList.remove("is-visible");
     lightboxImage.onload = null;
     lightboxImage.onerror = null;
+  }
+
+  // Dacă utilizatorul a închis poza cu butonul X sau click, curățăm pasul din istoric
+  if (!fromPopstate && history.state && history.state.lightboxOpen) {
+    history.back();
   }
 }
 
@@ -796,3 +804,10 @@ if (contactForm) {
     });
   });
 }
+
+/* Interceptează butonul Back al telefonului când poza din galerie e deschisă */
+window.addEventListener("popstate", function (event) {
+  if (lightbox && lightbox.getAttribute("aria-hidden") === "false") {
+    closeLightbox(true);
+  }
+});
