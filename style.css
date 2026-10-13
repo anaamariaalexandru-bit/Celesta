@@ -2241,8 +2241,8 @@ html, body {
 
 /* 1. Setează înălțimea fixă pentru spațiul de sub bară */
 body {
-  padding-top: 60px !important;
-  margin-top: 0 !important;
+  padding-top: 60px;
+  margin-top: 0;
 }
 
 /* 2. Anulează spațiile mari de sus din toate titlurile și prima secțiune a fiecărei pagini */
@@ -2256,10 +2256,10 @@ section,
 .contact-hero,
 .container,
 .wrapper {
-  padding-top: 10px !important;  /* Spațiul mic, compact sub linia roz */
-  margin-top: 0 !important;
-  min-height: auto !important;  /* Elimină împingerea textului în jos */
-  justify-content: flex-start !important;
+  padding-top: 10px;  /* Spațiul mic, compact sub linia roz */
+  margin-top: 5;
+  min-height: auto;  /* Elimină împingerea textului în jos */
+  justify-content: flex-start;
 }
 
 /* 3. Elimină orice margine superioară de pe primul element (badge, titlu H1, etc.) */
@@ -2274,6 +2274,6 @@ section > *:first-child,
 .page-header h1,
 .hero h1,
 h1 {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin-top: 5;
+  padding-top: 0;
 }
