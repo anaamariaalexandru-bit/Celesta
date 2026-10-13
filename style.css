@@ -77,60 +77,60 @@ header.navbar {
   top: 0;
   left: 0;
   width: 100%;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important; /* Împiedică trecerea meniului sub logo */
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 10px clamp(4px, 2vw, 24px) !important;
-  background: rgba(10, 10, 10, 0.96) !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Împiedică trecerea meniului sub logo */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px clamp(4px, 2vw, 24px);
+  background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 2px solid #e58aa7 !important;
-  box-sizing: border-box !important;
+  border-bottom: 2px solid #e58aa7;
+  box-sizing: border-box;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 /* Style pentru Logo */
 .logo {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* Centrează 'Celesta' pe mijloc sub textul de sus */
-  text-align: center !important;
-  flex-shrink: 0 !important;
-  white-space: nowrap !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrează 'Celesta' pe mijloc sub textul de sus */
+  text-align: center;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* Textul de sus: Ansamblul Vocal-Instrumental (italic, font caligrafic, roz) */
 .logo-accent {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif !important;
-  font-style: italic !important;
-  font-size: clamp(12px, 2vw, 17px) !important;
-  color: #e58aa7 !important; /* ROZ */
-  line-height: 1.1 !important;
-  letter-spacing: 0.5px !important;
+  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
+  font-style: italic;
+  font-size: clamp(12px, 2vw, 17px);
+  color: #e58aa7; /* ROZ */
+  line-height: 1.1;
+  letter-spacing: 0.5px;
 }
 
 /* Titlul de jos: Celesta (fără ghilimele, centrat pe mijloc, italic, roz) */
 .logo h1,
 .logo-title,
 header h1 {
-  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif !important;
-  font-style: italic !important;
-  font-size: clamp(18px, 3.2vw, 26px) !important;
-  font-weight: 400 !important;
-  letter-spacing: 1px !important;
-  text-transform: none !important;
-  color: #e58aa7 !important; /* ROZ */
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: auto !important;
-  text-align: center !important;
-  white-space: nowrap !important;
+  font-family: 'Great Vibes', 'Coneria', cursive, sans-serif;
+  font-style: italic;
+  font-size: clamp(18px, 3.2vw, 26px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: #e58aa7; /* ROZ */
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: auto;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* Ascundem definitiv butoanele de mobil */
@@ -138,45 +138,45 @@ header h1 {
 .close-btn,
 button.close-btn,
 button.hamburger {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* MENIUL: Întotdeauna în dreapta logo-ului, pe un singur rând */
 .nav-menu {
-  position: static !important;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: clamp(2px, 1vw, 16px) !important;
-  width: auto !important;
-  height: auto !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  position: static;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(4px, 1.4vw, 22px);
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Opțiunile din meniu */
 .nav-menu a {
-  font-size: clamp(8px, 1.3vw, 13px) !important;
-  padding: 4px clamp(2px, 0.5vw, 6px) !important;
-  white-space: nowrap !important;
-  color: #ffffff !important;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  transition: color 0.2s ease !important;
+  font-size: clamp(10px, 1.5vw, 15px); /* Mărit de la 8px-13px la 10px-15px */
+  padding: 4px clamp(3px, 0.8vw, 10px);
+  letter-spacing: clamp(0.5px, 0.15vw, 1.8px);
+  white-space: nowrap;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
-
 .nav-menu a:hover,
 .nav-menu a.active {
-  color: #e58aa7 !important;
-  background: transparent !important;
+  color: #e58aa7;
+  background: transparent;
 }
 
 /* ================= HERO ================= */
