@@ -71,7 +71,7 @@ html{
 
 
 
-/* Import font caligrafic suplimentar pentru lizibilitate impecabilă pe mobil */
+/* Import font caligrafic */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 /* ================= HEADER & NAVBAR ================= */
@@ -83,104 +83,108 @@ header.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Padding fluid ce scade discret pe telefoane mici */
-  padding: 10px clamp(8px, 2.5vw, 28px);
-  background: rgba(10, 10, 10, 0.96) !important;
+  padding: 8px clamp(6px, 2vw, 24px);
+  background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(229, 138, 167, 0.3) !important;
+  border-bottom: 1px solid rgba(229, 138, 167, 0.3);
   box-sizing: border-box;
 }
 
 /* Ascundem butoanele hamburger/close */
 button.hamburger,
 button.close-btn {
-  display: none !important;
+  display: none;
 }
 
-/* Logo - Tot scrisul roz și caligrafic pe un singur bloc */
+/* LOGO: Centrat față de el însuși */
 .logo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  flex-shrink: 0; /* Previne strângerea sau deformarea logo-ului */
-  white-space: nowrap; /* Garantează că nu se rupe pe două rânduri de text neintenționat */
-}
-
-/* Subtitlul de sus - Roz și caligrafic */
-.logo-accent {
-  font-family: 'Coneria', 'Great Vibes', cursive, sans-serif;
-  font-size: clamp(12px, 2.2vw, 17px);
-  color: #e58aa7 !important;
-  line-height: 1.1;
+  align-items: center; /* Centrează 'Celesta' exact sub 'Ansamblul Vocal-Instrumental' */
+  text-align: center;
+  flex-shrink: 0;
   white-space: nowrap;
 }
 
-/* Titlul "Celesta" de jos - TOT roz și caligrafic frumos */
+/* Subtitlul de sus: Roz și caligrafic */
+.logo-accent {
+  font-family: 'Coneria', 'Great Vibes', cursive, sans-serif;
+  font-size: clamp(10px, 1.8vw, 16px);
+  color: #e58aa7;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Titlul Celesta: Fără ghilimele, centrat pe mijloc, TOT roz */
 .logo h1,
 .logo-title,
 header h1 {
-  font-family: 'Coneria', 'Great Vibes', cursive, sans-serif !important;
-  font-size: clamp(16px, 3.2vw, 24px) !important;
-  font-weight: 400 !important;
-  letter-spacing: 1px !important;
-  text-transform: none !important;
-  color: #e58aa7 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: auto !important;
+  font-family: 'Coneria', 'Great Vibes', cursive, sans-serif;
+  font-size: clamp(15px, 2.8vw, 24px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: #e58aa7;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: auto;
+  text-align: center;
   white-space: nowrap;
 }
 
-/* Container Meniu - Întotdeauna un singur rând orizontal */
+/* MENIU: Întotdeauna pe O SINGURĂ LINIE */
 .nav-menu {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  background: transparent !important;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important; /* Împiedică trecerea cuvintelor pe rândul următor */
-  align-items: center !important;
-  /* Distanța dintre opțiuni se strânge fluid când ecranul e mai mic */
-  gap: clamp(3px, 1.2vw, 18px) !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  position: static;
+  width: auto;
+  height: auto;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Blochează trecerea pe alt rând */
+  align-items: center;
+  gap: clamp(2px, 1vw, 16px); /* Se strânge automat pe ecrane mici */
+  box-shadow: none;
+  padding: 0;
 }
 
-/* Cuvintele din meniu - Fără nicio casetă/fundal roz */
+/* Link-uri meniu */
 .nav-menu a {
-  color: #ffffff !important;
-  /* Dimensiunea fontului scade automat pe ecrane mici ca să stea toate lipite frumos pe un rând */
-  font-size: clamp(9px, 1.4vw, 12px) !important;
-  font-weight: 600 !important;
-  letter-spacing: clamp(0.3px, 0.15vw, 1.5px) !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 4px clamp(2px, 0.8vw, 8px) !important;
-  transition: color 0.2s ease !important;
-  white-space: nowrap; /* Forțează ca cuvântul "Despre noi" să nu se rupă în două */
+  color: #ffffff;
+  font-size: clamp(8px, 1.2vw, 12px); /* Fontul scade lin pe mobil pentru a încapă tot */
+  font-weight: 600;
+  letter-spacing: clamp(0.2px, 0.1vw, 1.2px);
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 4px clamp(2px, 0.6vw, 6px);
+  transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-/* La trecerea cu mouse-ul se face roz */
 .nav-menu a:hover {
-  color: #e58aa7 !important;
-  background: transparent !important;
+  color: #e58aa7;
+  background: transparent;
 }
 
-/* Doar cuvântul devine ROZ când ești pe pagina respectivă (fără casetă/chenar) */
+/* Doar cuvântul devine ROZ pe pagina activă */
 .nav-menu a.active {
-  color: #e58aa7 !important;
-  background: transparent !important;
-  font-weight: 700 !important;
-  text-shadow: 0 0 10px rgba(229, 138, 167, 0.35); /* Un ușor efect de strălucire roz discretă */
+  color: #e58aa7;
+  background: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(229, 138, 167, 0.35);
+}
+
+/* Adaptare specială pentru telefoane înguste (sub 480px) */
+@media (max-width: 480px) {
+  .logo-accent {
+    display: none; /* Ascunde linia lungă de sus pe mobil ca să rămână doar 'Celesta' și să încapă TOT meniul pe un rând */
+  }
 }
 
 /* ================= HERO ================= */
