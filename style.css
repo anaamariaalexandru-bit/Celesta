@@ -9,7 +9,8 @@
 body{ 
   font-family:'Roboto', sans-serif;
   color:#f5f5f5; 
-  min-height:100vh; 
+  min-height:100vh;
+  padding-top: clamp(65px, 8vh, 90px); 
   display:flex; 
   flex-direction:column;
   background: #0a0a0a;
