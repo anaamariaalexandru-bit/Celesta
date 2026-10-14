@@ -781,14 +781,14 @@ body::before{
 }
 
 /* ================= EVENT MODAL ================= */
-/* ================= EVENT MODAL ================= */
+/* ================= EVENT MODAL (PORTRAIT / VERTICAL) ================= */
 .event-modal {
   position: fixed;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px; /* Spațiu minim pe marginile ecranului */
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -803,95 +803,99 @@ body::before{
   pointer-events: auto;
 }
 
-/* Cardul interior din modal */
+/* Cardul din modal pe mobil vertical */
 .event-modal-card {
-  position: relative; /* OBLIGATORIU: referință pentru poziția X-ului */
-  width: min(680px, 100%);
-  padding: 36px 30px 30px 30px;
-  border: 1px solid rgba(229, 138, 167, 0.2);
-  border-radius: 28px;
+  position: relative; /* Esențial pentru ca X-ul să se ancoreze de colțul casetei */
+  width: 100%;
+  max-width: 500px;
+  padding: 24px 20px 20px 20px; /* Padding optimizat interior */
+  border: 1px solid rgba(229, 138, 167, 0.25);
+  border-radius: 24px;
   background:
     radial-gradient(circle at top right, rgba(229, 138, 167, 0.15), transparent 40%),
     linear-gradient(145deg, rgba(229, 138, 167, 0.12), rgba(255, 255, 255, 0.02)),
     rgba(10, 10, 10, 0.96);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   text-align: left;
+  box-sizing: border-box;
 }
 
-/* Titlul din modal - îi lăsăm loc în dreapta ca să nu treacă peste X */
+/* Titlul "Repetiții" - lăsăm loc dedicat în dreapta pentru X */
 .event-modal-card h4 {
   font-family: 'Coneria', cursive;
-  font-size: 38px;
+  font-size: 32px;
   line-height: 1.1;
   color: #fff0f4;
-  margin: 10px 0 16px 0;
-  padding-right: 40px; 
+  margin: 0 0 14px 0;
+  padding-right: 35px; /* Împiedică cuvântul să ajungă sub X */
 }
 
+/* Textul descriptiv */
 .event-modal-card p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 20px;
 }
 
-/* BUTONUL X - Fixat complet sus în dreapta */
+/* BUTONUL X - Pozitivat exact în colțul din dreapta sus al casetei */
 button.event-modal-close {
   position: absolute;
-  top: 18px;
+  top: 16px;
   right: 18px;
-  width: 38px;
-  height: 38px;
+  width: auto;
+  height: auto;
   padding: 0;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   
-  /* Resetare fundal roz */
+  /* Stil curat: fără cerc, fără fundal */
   background: transparent;
-  border: 1px solid rgba(229, 138, 167, 0.25);
-  border-radius: 50%;
+  border: none;
+  border-radius: 0;
   box-shadow: none;
   transform: none;
   
   color: #ffffff;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
-  z-index: 20;
-  -webkit-tap-highlight-color: transparent; /* Elimină efectul gri/roz de pe iOS la tap */
-  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  z-index: 30;
+  -webkit-tap-highlight-color: transparent; /* Elimină fundalul roz de la atingere */
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* Hover & Active la butonul X (fără fundal roz plin, doar glow ca la restul) */
+/* Hover/Tap pe X */
 button.event-modal-close:hover,
 button.event-modal-close:active,
 button.event-modal-close:focus {
-  background: rgba(212, 114, 158, 0.18);
+  background: transparent;
+  color: #e58aa7;
+  text-shadow: 0 0 10px rgba(229, 138, 167, 0.6);
+}
+
+/* Butonul "Vezi videoclipuri" centrat jos */
+.event-video-button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  background-color: rgba(212, 114, 158, 0.12);
+  color: #f1a3be;
+  border: 1px solid rgba(229, 138, 167, 0.35);
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.event-video-button:hover,
+.event-video-button:active {
+  background-color: rgba(212, 114, 158, 0.18);
   color: #ffffff;
   border-color: #e58aa7;
   box-shadow: 0 0 12px rgba(229, 138, 167, 0.4);
-  transform: scale(1.05);
-}
-
-/* Adaptare specială pentru mobil */
-@media (max-width: 640px) {
-  .event-modal-card {
-    padding: 28px 20px 24px 20px;
-  }
-
-  .event-modal-card h4 {
-    font-size: 32px;
-    padding-right: 45px;
-  }
-
-  button.event-modal-close {
-    top: 14px;
-    right: 14px;
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
-  }
 }
 
 .modal-label{
