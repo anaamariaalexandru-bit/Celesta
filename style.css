@@ -492,43 +492,51 @@ body::before{
   margin:0;
 }
 
-/* Indicator vizual pentru cardurile interactive din Evenimente */
+/* Indicator vizual pentru cardurile din Evenimente */
 .event-card, 
 .events-grid > div {
   position: relative;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding-bottom: 50px !important; /* Spațiu în jos pentru buton */
+  /* Dezactivăm click-ul pe tot cardul; interacțiunea se face prin buton */
+  pointer-events: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  padding-bottom: 55px !important; /* Spațiu în jos pentru buton */
 }
 
-/* Efect de ridicare la hover / atingere */
+/* Efect de ridicare la hover peste card */
 .event-card:hover,
 .events-grid > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(230, 0, 126, 0.2);
+  transform: translateY(-6px);
+  border-color: rgba(229, 138, 167, 0.38);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
 }
 
-/* Butonașul de acțiune generat automat în fiecare casetă */
+/* Butonul din colțul casetei - reactivăm click-ul doar pe el */
 .event-card::after,
 .events-grid > div::after {
   content: "Vezi detalii & video ▶";
   position: absolute;
   bottom: 15px;
   right: 15px;
-  background-color: rgba(212, 114, 158, 0.1);
-  color: #d4729e;
+  pointer-events: auto; /* Permite click doar pe buton */
+  cursor: pointer;
+  background-color: rgba(212, 114, 158, 0.12);
+  color: #f1a3be;
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid rgba(212, 114, 158, 0.3);
-  transition: all 0.2s ease;
+  border: 1px solid rgba(229, 138, 167, 0.35);
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
+/* Efect de strălucire / iluminare la hover fără umplere (fill) */
 .event-card:hover::after,
 .events-grid > div:hover::after {
-  background-color: #d4729e;
+  background-color: rgba(212, 114, 158, 0.18); /* Nu se umple solid, doar se intensifică ușor */
   color: #ffffff;
+  border-color: #e58aa7;
+  box-shadow: 0 0 12px rgba(229, 138, 167, 0.4); /* Luminează discret */
+  transform: scale(1.02);
 }
 
 
