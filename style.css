@@ -668,7 +668,7 @@ body::before{
   margin-top: 8px;
 }
 
-/* Wrapper-ul Carousel-ului cu săgeți */
+/* Wrapper-ul Carousel-ului */
 .calendar-carousel-wrapper {
   position: relative;
   display: flex;
@@ -680,35 +680,35 @@ body::before{
   padding: 20px 0;
 }
 
-/* Zona glisantă cu scroll-snap și gesturi touch */
+/* Zona glisantă */
 .calendar-carousel {
   width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   padding: 25px 10px;
-  scrollbar-width: none; /* Ascunde scrollbar în Firefox */
+  scrollbar-width: none;
 }
 
 .calendar-carousel::-webkit-scrollbar {
-  display: none; /* Ascunde scrollbar în Chrome/Safari/Edge */
+  display: none;
 }
 
 .carousel-track {
   display: flex;
   gap: 22px;
   align-items: center;
-  padding: 0 calc(50% - 150px); /* Centrează automat primul și ultimul card */
+  padding: 0 calc(50% - 140px);
 }
 
-/* Card individual (fără poze, bazat pe gradient & text) */
+/* Card individual (Stare normală) */
 .calendar-card {
   flex: 0 0 280px;
   height: 320px;
   scroll-snap-align: center;
   position: relative;
   border-radius: 24px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06) 0%, rgba(20, 20, 20, 0.95) 100%);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(20, 20, 20, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px 20px;
   display: flex;
@@ -717,26 +717,34 @@ body::before{
   text-align: left;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
   transform: scale(0.88);
-  opacity: 0.65;
-  filter: blur(0.6px);
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.6;
+  filter: blur(0.5px);
+  transition: transform 0.35s ease, opacity 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
   pointer-events: auto;
   user-select: none;
 }
 
-/* Cardul ACTIV (Mărit în mijloc, iluminat roz, fără blur) */
-.calendar-card.active,
-.calendar-card:hover {
-  transform: scale(1.08);
+/* Hover pe cardurile laterale (DOAR o iluminare discretă, FĂRĂ mărire sau transform) */
+.calendar-card:not(.active):hover {
+  opacity: 0.8;
+  border-color: rgba(229, 138, 167, 0.3);
+  background: linear-gradient(160deg, rgba(229, 138, 167, 0.08) 0%, rgba(20, 20, 20, 0.95) 100%);
+  /* Păstrăm scara 0.88 ca să NU se mărească deloc */
+  transform: scale(0.88);
+}
+
+/* DOAR Cardul ACTIV (cel din mijloc) se mărește și luminează complet */
+.calendar-card.active {
+  transform: scale(1.06);
   opacity: 1;
   filter: blur(0);
   border-color: #e58aa7;
   background: linear-gradient(160deg, rgba(229, 138, 167, 0.22) 0%, rgba(15, 15, 15, 0.98) 100%);
-  box-shadow: 0 20px 45px rgba(229, 138, 167, 0.25), 0 0 20px rgba(229, 138, 167, 0.15);
+  box-shadow: 0 20px 45px rgba(229, 138, 167, 0.22);
   z-index: 2;
 }
 
-/* Ecusa / Badge Data (Colțul din stânga sus) */
+/* Ecusa / Badge Data */
 .card-badge {
   display: inline-flex;
   flex-direction: column;
@@ -780,7 +788,7 @@ body::before{
   margin: 0;
 }
 
-/* Detalii (Locație & Ora) jos pe card */
+/* Detalii jos */
 .card-meta {
   display: flex;
   flex-direction: column;
@@ -792,64 +800,43 @@ body::before{
   font-weight: 500;
 }
 
-/* Săgeți de Navigare Stânga/Dreapta */
+/* SĂGEȚI MINIMALISTE (Fără cerc, fără fond, doar linia/textul săgeții) */
 .carousel-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(229, 138, 167, 0.4);
-  color: #e58aa7;
-  font-size: 28px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: rgba(255, 255, 255, 0.5); /* Culoare discretă inițială */
+  font-size: 46px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.carousel-nav:hover {
-  background: #e58aa7;
-  color: #0a0a0a;
-  box-shadow: 0 0 15px rgba(229, 138, 167, 0.6);
-  transform: translateY(-50%) scale(1.1);
+/* La hover pe săgeți: se schimbă DOAR culoarea textului/liniei în roz */
+.carousel-nav:hover,
+.carousel-nav:active,
+.carousel-nav:focus {
+  background: transparent !important;
+  color: #e58aa7 !important;
+  box-shadow: none !important;
+  transform: translateY(-50%) !important; /* Nu se mișcă / nu se umflă */
 }
 
-.prev-btn { left: -5px; }
-.next-btn { right: -5px; }
-
-/* Înlocuiește `.sageata` cu clasa sau selectorul tău pentru săgeți (ex: .btn-scroll, .swiper-button-next etc.) */
-.sageata {
-    background: transparent;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent; /* Elimină efectul pe telefoane/touchscreen */
-}
-
-/* Elimină fundalul roz pe hover (când treci cu mouse-ul) */
-.sageata:hover {
-    background: transparent;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-/* Elimină fundalul sau cercul la click / scroll / focus */
-.sageata:active,
-.sageata:focus,
-.sageata:focus-visible {
-    background: transparent;
-    background-color: transparent;
-    box-shadow: none;
-    outline: none;
-}
+.prev-btn { left: -15px; }
+.next-btn { right: -15px; }
 
 /* Adaptare pe telefoane mobile */
 @media (max-width: 640px) {
@@ -864,10 +851,11 @@ body::before{
   }
 
   .carousel-nav {
-    width: 36px;
-    height: 36px;
-    font-size: 22px;
+    font-size: 36px;
   }
+  
+  .prev-btn { left: -5px; }
+  .next-btn { right: -5px; }
 }
 
 /* ================= EVENT MODAL ================= */
