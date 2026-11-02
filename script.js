@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!carousel || cards.length === 0) return;
 
-  // Actualizare clasa active pe cardul din mijloc
+  // Funcție care determină cardul din mijloc și îi pune clasa 'active'
   const updateActiveCard = () => {
     const carouselCenter = carousel.getBoundingClientRect().left + carousel.clientWidth / 2;
     let closestCard = cards[0];
@@ -842,20 +842,31 @@ document.addEventListener('DOMContentLoaded', () => {
     closestCard.classList.add('active');
   };
 
-  // Eveniment de scroll
+  // Actualizăm cardul activ la scroll
   carousel.addEventListener('scroll', updateActiveCard);
 
-  // Butoane Stânga / Dreapta
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: -260, behavior: 'smooth' });
-    });
-
-    nextBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: 260, behavior: 'smooth' });
-    });
+  // Funcționalitate Butoane Săgeți (Stânga / Dreapta)
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.preventDefault();
+      carousel.scrollBy({ left: -280, behavior: 'smooth' });
+    };
   }
 
-  // Inițializare card activ
-  updateActiveCard();
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.preventDefault();
+      carousel.scrollBy({ left: 280, behavior: 'smooth' });
+    };
+  }
+
+  // Click direct pe un card lateral pentru a-l aduce în mijloc
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+  });
+
+  // Inițializare la încărcarea paginii
+  setTimeout(updateActiveCard, 100);
 });

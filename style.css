@@ -688,6 +688,7 @@ body::before{
   scroll-snap-type: x mandatory;
   padding: 25px 10px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch; /* Pentru glisare fină pe iPhone/Safari */
 }
 
 .calendar-carousel::-webkit-scrollbar {
