@@ -644,219 +644,193 @@ body::before{
   }
 }
 
-/* ================= URMĂTOARELE EVENIMENTE (CALENDAR CAROUSEL SLIDER) ================= */
-.upcoming-events {
+/* ================= SECȚIUNE FESTIVĂ DE CRĂCIUN (AGENDA TIHNIȚĂ) ================= */
+.christmas-events-section {
   margin-bottom: 55px;
-  padding: 35px 20px;
-  border: 1px solid rgba(229, 138, 167, 0.25);
+  padding: 40px 24px;
+  border: 1px solid rgba(229, 138, 167, 0.3);
   border-radius: 32px;
-  background: radial-gradient(circle at top, rgba(229, 138, 167, 0.08), transparent 70%),
-              linear-gradient(145deg, rgba(229, 138, 167, 0.1), rgba(10, 10, 10, 0.95));
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  background: 
+    radial-gradient(circle at top right, rgba(229, 138, 167, 0.15), transparent 50%),
+    linear-gradient(160deg, rgba(20, 10, 15, 0.95), rgba(10, 10, 10, 0.98));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   text-align: center;
-  overflow: hidden;
 }
 
-.upcoming-header {
-  margin-bottom: 28px;
+.christmas-header {
+  margin-bottom: 35px;
 }
 
-.upcoming-header h4 {
-  font-family: 'Coneria', cursive;
-  font-size: 38px;
-  color: #fff0f4;
-  margin-top: 8px;
-}
-
-/* Wrapper-ul Carousel-ului */
-.calendar-carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-/* Zona glisantă */
-.calendar-carousel {
-  width: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 25px 10px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch; /* Pentru glisare fină pe iPhone/Safari */
-}
-
-.calendar-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-  padding: 0 calc(50% - 140px);
-}
-
-/* Card individual (Stare normală) */
-.calendar-card {
-  flex: 0 0 280px;
-  height: 320px;
-  scroll-snap-align: center;
-  position: relative;
-  border-radius: 24px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(20, 20, 20, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
-  transform: scale(0.88);
-  opacity: 0.6;
-  filter: blur(0.5px);
-  transition: transform 0.35s ease, opacity 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
-  pointer-events: auto;
-  user-select: none;
-}
-
-/* Hover pe cardurile laterale (DOAR o iluminare discretă, FĂRĂ mărire sau transform) */
-.calendar-card:not(.active):hover {
-  opacity: 0.8;
-  border-color: rgba(229, 138, 167, 0.3);
-  background: linear-gradient(160deg, rgba(229, 138, 167, 0.08) 0%, rgba(20, 20, 20, 0.95) 100%);
-  /* Păstrăm scara 0.88 ca să NU se mărească deloc */
-  transform: scale(0.88);
-}
-
-/* DOAR Cardul ACTIV (cel din mijloc) se mărește și luminează complet */
-.calendar-card.active {
-  transform: scale(1.06);
-  opacity: 1;
-  filter: blur(0);
-  border-color: #e58aa7;
-  background: linear-gradient(160deg, rgba(229, 138, 167, 0.22) 0%, rgba(15, 15, 15, 0.98) 100%);
-  box-shadow: 0 20px 45px rgba(229, 138, 167, 0.22);
-  z-index: 2;
-}
-
-/* Ecusa / Badge Data */
-.card-badge {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+.christmas-kicker {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
   background: rgba(229, 138, 167, 0.15);
-  border: 1px solid rgba(229, 138, 167, 0.35);
+  border: 1px solid rgba(229, 138, 167, 0.3);
   color: #ffd4df;
-}
-
-.badge-day {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.badge-month {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 13px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-/* Conținut Text Card */
-.card-content h5 {
+.christmas-header h4 {
+  font-family: 'Coneria', cursive;
+  font-size: 42px;
+  color: #fff0f4;
+  margin-bottom: 8px;
+}
+
+.christmas-header p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* CONTAINER BILETE */
+.tickets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* BILET INDIVIDUAL */
+.christmas-ticket {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(229, 138, 167, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.christmas-ticket:hover {
+  transform: translateY(-4px);
+  border-color: #e58aa7;
+  box-shadow: 0 12px 30px rgba(229, 138, 167, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ZONA DE IMAGINE DE CRĂCIUN SÂNGERIE / POZĂ FOND */
+.ticket-image {
+  width: 220px;
+  min-width: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.ticket-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(15,15,15,0.85));
+}
+
+/* BADGE CU DATA */
+.ticket-badge {
+  position: relative;
+  z-index: 2;
+  background: rgba(15, 10, 12, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid #e58aa7;
+  border-radius: 14px;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffd4df;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.t-day {
   font-size: 20px;
   font-weight: 700;
-  color: #ffffff;
-  margin-top: 14px;
-  margin-bottom: 8px;
-  line-height: 1.25;
+  line-height: 1;
 }
 
-.card-content p {
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.78);
-  margin: 0;
+.t-month {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-/* Detalii jos */
-.card-meta {
+/* CONȚINUT TEXT BILET */
+.ticket-info {
+  padding: 24px 28px;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.ticket-tag {
   font-size: 12px;
+  font-weight: 600;
+  color: #e58aa7;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ticket-info h5 {
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.ticket-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 16px;
+}
+
+.ticket-details {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
   color: rgba(255, 212, 223, 0.9);
   font-weight: 500;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  padding-top: 12px;
 }
 
-/* SĂGEȚI MINIMALISTE (Fără cerc, fără fond, doar linia/textul săgeții) */
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
-  height: auto;
-  padding: 10px;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: rgba(255, 255, 255, 0.5); /* Culoare discretă inițială */
-  font-size: 46px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: color 0.25s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* La hover pe săgeți: se schimbă DOAR culoarea textului/liniei în roz */
-.carousel-nav:hover,
-.carousel-nav:active,
-.carousel-nav:focus {
-  background: transparent !important;
-  color: #e58aa7 !important;
-  box-shadow: none !important;
-  transform: translateY(-50%) !important; /* Nu se mișcă / nu se umflă */
-}
-
-.prev-btn { left: -15px; }
-.next-btn { right: -15px; }
-
-/* Adaptare pe telefoane mobile */
-@media (max-width: 640px) {
-  .calendar-card {
-    flex: 0 0 240px;
-    height: 300px;
-    padding: 20px 16px;
-  }
-  
-  .carousel-track {
-    padding: 0 calc(50% - 120px);
+/* ADAPTARE EXCELENTĂ PE MOBIL (Așezare verticală) */
+@media (max-width: 650px) {
+  .christmas-ticket {
+    flex-direction: column;
   }
 
-  .carousel-nav {
-    font-size: 36px;
+  .ticket-image {
+    width: 100%;
+    height: 140px;
   }
-  
-  .prev-btn { left: -5px; }
-  .next-btn { right: -5px; }
+
+  .ticket-image::after {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(15,15,15,0.95));
+  }
+
+  .ticket-info {
+    padding: 18px 20px;
+  }
+
+  .ticket-info h5 {
+    font-size: 19px;
+  }
+
+  .ticket-details {
+    flex-direction: column;
+    gap: 6px;
+  }
 }
 
 /* ================= EVENT MODAL ================= */
