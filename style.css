@@ -644,139 +644,202 @@ body::before{
   }
 }
 
-/* ================= URMĂTOARELE EVENIMENTE (DESIGN COMPACT) ================= */
+/* ================= URMĂTOARELE EVENIMENTE (CALENDAR CAROUSEL SLIDER) ================= */
 .upcoming-events {
-  margin-bottom: 48px;
-  padding: 24px 28px;
-  border: 1px solid rgba(229,138,167,0.25);
-  border-radius: 28px;
-  background: linear-gradient(145deg, rgba(229,138,167,0.12), rgba(255,255,255,0.02)), rgba(10,10,10,0.86);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
-  text-align: left;
+  margin-bottom: 55px;
+  padding: 35px 20px;
+  border: 1px solid rgba(229, 138, 167, 0.25);
+  border-radius: 32px;
+  background: radial-gradient(circle at top, rgba(229, 138, 167, 0.08), transparent 70%),
+              linear-gradient(145deg, rgba(229, 138, 167, 0.1), rgba(10, 10, 10, 0.95));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  overflow: hidden;
 }
 
 .upcoming-header {
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 }
 
 .upcoming-header h4 {
   font-family: 'Coneria', cursive;
-  font-size: 34px;
+  font-size: 38px;
   color: #fff0f4;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
-/* Container cu derulare dacă sunt mai mult de 3-4 evenimente */
-.upcoming-grid {
+/* Wrapper-ul Carousel-ului cu săgeți */
+.calendar-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Zona glisantă cu scroll-snap și gesturi touch */
+.calendar-carousel {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 25px 10px;
+  scrollbar-width: none; /* Ascunde scrollbar în Firefox */
+}
+
+.calendar-carousel::-webkit-scrollbar {
+  display: none; /* Ascunde scrollbar în Chrome/Safari/Edge */
+}
+
+.carousel-track {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  padding: 0 calc(50% - 150px); /* Centrează automat primul și ultimul card */
+}
+
+/* Card individual (fără poze, bazat pe gradient & text) */
+.calendar-card {
+  flex: 0 0 280px;
+  height: 320px;
+  scroll-snap-align: center;
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-height: 280px; /* Limitează înălțimea totală */
-  overflow-y: auto;  /* Adaugă scroll discret dacă sunt multe */
-  padding-right: 6px;
-}
-
-/* Personalizare bara de scroll discretă */
-.upcoming-grid::-webkit-scrollbar {
-  width: 5px;
-}
-.upcoming-grid::-webkit-scrollbar-thumb {
-  background: rgba(229, 138, 167, 0.4);
-  border-radius: 10px;
-}
-
-/* Carduri subțiri / tip linie */
-.upcoming-card {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
+  text-align: left;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(0.88);
+  opacity: 0.65;
+  filter: blur(0.6px);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Cardul ACTIV (Mărit în mijloc, iluminat roz, fără blur) */
+.calendar-card.active,
+.calendar-card:hover {
+  transform: scale(1.08);
+  opacity: 1;
+  filter: blur(0);
+  border-color: #e58aa7;
+  background: linear-gradient(160deg, rgba(229, 138, 167, 0.22) 0%, rgba(15, 15, 15, 0.98) 100%);
+  box-shadow: 0 20px 45px rgba(229, 138, 167, 0.25), 0 0 20px rgba(229, 138, 167, 0.15);
+  z-index: 2;
+}
+
+/* Ecusa / Badge Data (Colțul din stânga sus) */
+.card-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-
-.upcoming-card:hover {
-  transform: translateX(4px);
-  border-color: rgba(229,138,167,0.35);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* Data mică și compactă */
-.upcoming-date {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(229, 138, 167, 0.2), rgba(239, 151, 171, 0.1));
-  border: 1px solid rgba(229, 138, 167, 0.3);
+  background: rgba(229, 138, 167, 0.15);
+  border: 1px solid rgba(229, 138, 167, 0.35);
   color: #ffd4df;
-  min-width: max-content;
 }
 
-.upcoming-date .day {
-  font-size: 16px;
+.badge-day {
+  font-size: 18px;
   font-weight: 700;
+  line-height: 1;
 }
 
-.upcoming-date .month {
-  font-size: 13px;
+.badge-month {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-weight: 600;
 }
 
-/* Detalii pe un singur rând flexibil */
-.upcoming-details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-left: 16px;
-  gap: 12px;
+/* Conținut Text Card */
+.card-content h5 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
-.upcoming-details h5 {
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.upcoming-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.card-content p {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.upcoming-location,
-.upcoming-time {
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
-  white-space: nowrap;
 }
 
-/* Adaptare pe telefoane (mobil) */
-@media(max-width: 640px) {
-  .upcoming-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px;
+/* Detalii (Locație & Ora) jos pe card */
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: rgba(255, 212, 223, 0.9);
+  font-weight: 500;
+}
+
+/* Săgeți de Navigare Stânga/Dreapta */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(229, 138, 167, 0.4);
+  color: #e58aa7;
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-nav:hover {
+  background: #e58aa7;
+  color: #0a0a0a;
+  box-shadow: 0 0 15px rgba(229, 138, 167, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: -5px; }
+.next-btn { right: -5px; }
+
+/* Adaptare pe telefoane mobile */
+@media (max-width: 640px) {
+  .calendar-card {
+    flex: 0 0 240px;
+    height: 300px;
+    padding: 20px 16px;
   }
-  .upcoming-details {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 0;
-    gap: 4px;
+  
+  .carousel-track {
+    padding: 0 calc(50% - 120px);
   }
-  .upcoming-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
   }
 }
 

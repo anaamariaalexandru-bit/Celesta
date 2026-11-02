@@ -811,3 +811,51 @@ window.addEventListener("popstate", function (event) {
     closeLightbox(true);
   }
 });
+
+
+// Carousel Slider 3D pentru Evenimente
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.calendar-carousel');
+  const cards = document.querySelectorAll('.calendar-card');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+
+  if (!carousel || cards.length === 0) return;
+
+  // Actualizare clasa active pe cardul din mijloc
+  const updateActiveCard = () => {
+    const carouselCenter = carousel.getBoundingClientRect().left + carousel.clientWidth / 2;
+    let closestCard = cards[0];
+    let minDistance = Infinity;
+
+    cards.forEach(card => {
+      const cardCenter = card.getBoundingClientRect().left + card.clientWidth / 2;
+      const distance = Math.abs(carouselCenter - cardCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestCard = card;
+      }
+    });
+
+    cards.forEach(card => card.classList.remove('active'));
+    closestCard.classList.add('active');
+  };
+
+  // Eveniment de scroll
+  carousel.addEventListener('scroll', updateActiveCard);
+
+  // Butoane Stânga / Dreapta
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -260, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: 260, behavior: 'smooth' });
+    });
+  }
+
+  // Inițializare card activ
+  updateActiveCard();
+});

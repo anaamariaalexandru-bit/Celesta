@@ -40,33 +40,106 @@
         </p>
       </div>
 
-<!-- SECȚIUNE NOUĂ: URMĂTOARELE EVENIMENTE (AGENDA COMPACTĂ) -->
+<!-- SECȚIUNE NOUĂ: URMĂTOARELE EVENIMENTE (SLIDER CAROUSEL CA ÎN POZĂ) -->
 <div class="upcoming-events page-animate">
   <div class="upcoming-header">
     <span class="event-label">Calendar</span>
     <h4>Următoarele evenimente</h4>
   </div>
 
-  <div class="upcoming-grid">
-
-
-    <!-- Eveniment 3 -->
-    <div class="upcoming-card">
-      <div class="upcoming-date">
-        <span class="day">13</span>
-        <span class="month">Dec</span>
-      </div>
-      <div class="upcoming-details">
-        <h5>Concert de colinde</h5>
-        <div class="upcoming-info">
-          <p class="upcoming-location">📍 Măgureni</p>
-          <p class="upcoming-time">⏰ Ora - </p>
+  <!-- Containerul Slider 3D / Glisant -->
+  <div class="calendar-carousel-wrapper">
+    <button class="carousel-nav prev-btn" type="button" aria-label="Înapoi">‹</button>
+    
+    <div class="calendar-carousel">
+      <div class="carousel-track" id="carouselTrack">
+        
+        <!-- Card 1 -->
+        <div class="calendar-card">
+          <div class="card-badge">
+            <span class="badge-day">25</span>
+            <span class="badge-month">NOV</span>
+          </div>
+          <div class="card-content">
+            <h5>Repetiție Generală</h5>
+            <p>Pregătiri intense și armonizare vocală pentru viitoarele concerte de iarnă.</p>
+            <div class="card-meta">
+              <span>📍 Sala Celesta</span>
+              <span>⏰ Ora 18:00</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Card 2 (Activ la început) -->
+        <div class="calendar-card active">
+          <div class="card-badge">
+            <span class="badge-day">01</span>
+            <span class="badge-month">DEC</span>
+          </div>
+          <div class="card-content">
+            <h5>Concert de Ziua Națională</h5>
+            <p>Spectacol festiv dedicat Zilei Naționale alături de invitați speciali.</p>
+            <div class="card-meta">
+              <span>📍 Casa de Cultură</span>
+              <span>⏰ Ora 17:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="calendar-card">
+          <div class="card-badge">
+            <span class="badge-day">13</span>
+            <span class="badge-month">DEC</span>
+          </div>
+          <div class="card-content">
+            <h5>Concert de Colinde</h5>
+            <p>Tradiție și magie în prag de sărbători. O seară plină de emoție și colinde autentice.</p>
+            <div class="card-meta">
+              <span>📍 Măgureni</span>
+              <span>⏰ Ora 19:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="calendar-card">
+          <div class="card-badge">
+            <span class="badge-day">20</span>
+            <span class="badge-month">DEC</span>
+          </div>
+          <div class="card-content">
+            <h5>Gala Caritabilă de Crăciun</h5>
+            <p>Muzică oferită cu drag pentru strângerea de fonduri și sprijinirea comunității.</p>
+            <div class="card-meta">
+              <span>📍 Centrul Cultural</span>
+              <span>⏰ Ora 18:30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="calendar-card">
+          <div class="card-badge">
+            <span class="badge-day">10</span>
+            <span class="badge-month">IAN</span>
+          </div>
+          <div class="card-content">
+            <h5>Festival de Iarnă</h5>
+            <p>Recital special pe scenă în cadrul festivalului județean al tinerilor artiști.</p>
+            <div class="card-meta">
+              <span>📍 Teatrul Municipal</span>
+              <span>⏰ Ora 16:00</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Poți adăuga oricâte evenimente vrei de aici în jos! -->
+    <button class="carousel-nav next-btn" type="button" aria-label="Înainte">›</button>
   </div>
+</div>
 
 </div>
       <!-- CELE 4 CASETE EXISTENTE -->
