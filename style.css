@@ -824,6 +824,33 @@ body::before{
 .prev-btn { left: -5px; }
 .next-btn { right: -5px; }
 
+/* Înlocuiește `.sageata` cu clasa sau selectorul tău pentru săgeți (ex: .btn-scroll, .swiper-button-next etc.) */
+.sageata {
+    background: transparent;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /* Elimină efectul pe telefoane/touchscreen */
+}
+
+/* Elimină fundalul roz pe hover (când treci cu mouse-ul) */
+.sageata:hover {
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Elimină fundalul sau cercul la click / scroll / focus */
+.sageata:active,
+.sageata:focus,
+.sageata:focus-visible {
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
 /* Adaptare pe telefoane mobile */
 @media (max-width: 640px) {
   .calendar-card {
